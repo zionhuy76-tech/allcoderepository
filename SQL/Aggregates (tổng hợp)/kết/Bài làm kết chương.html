@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>query.sql – GROUP BY và hàm tổng hợp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Pixelify+Sans:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --editor: #002451;
+    --slate: #1f2937;
+    --ink: #eaf0ff;
+    --dim: #6f86ad;
+    --kw: #e3c4ff;
+    --fn: #f02bff;
+    --head-bg: #c9f0cf;
+    --cell-bg: #f2fcf3;
+    --cell-line: #b9d9bd;
+    --mono: 'JetBrains Mono', 'Cascadia Mono', Consolas, ui-monospace, Menlo, monospace;
+    --sans: 'Mulish', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --pixel: 'Pixelify Sans', 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--slate); color: var(--ink); font-family: var(--sans); }
+  button { font-family: inherit; cursor: pointer; }
+  button:focus-visible { outline: 3px solid #38bdf8; outline-offset: 2px; }
+
+  .app { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); min-height: 100vh; }
+  @media (max-width: 860px) { .app { grid-template-columns: 1fr; } }
+
+  /* ---------- Editor ---------- */
+  .editor { background: var(--editor); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
+  @media (max-width: 860px) { .editor { position: static; height: auto; min-height: 60vh; } }
+  .tabbar { background: var(--slate); display: flex; }
+  .tab { background: var(--editor); padding: 14px 22px; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 12px; }
+  .tab svg { width: 28px; height: 28px; }
+  .code { flex: 1; overflow: auto; padding: 34px 8px 24px 0; font-family: var(--mono); font-size: .95rem; line-height: 30px; }
+  .ln { display: flex; align-items: center; white-space: pre; min-width: max-content; }
+  .gut { width: 34px; display: grid; place-items: center; flex: none; user-select: none; }
+  .num { width: 30px; text-align: right; color: var(--dim); margin-right: 22px; flex: none; user-select: none; }
+  .src { color: var(--ink); }
+  .k { color: var(--kw); } .f { color: var(--fn); } .d { color: var(--dim); }
+  .line-run {
+    width: 24px; height: 24px; border-radius: 6px; border: 0; background: rgba(255,255,255,.1); color: #7dd3fc;
+    font-size: .7rem; line-height: 1; display: grid; place-items: center;
+  }
+  .line-run:hover { background: rgba(125,211,252,.28); }
+  .actions { padding: 14px 22px 18px; display: flex; justify-content: flex-end; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .hint { margin-right: auto; font-size: .82rem; color: var(--dim); max-width: 34ch; }
+  .btn-run {
+    font-family: var(--pixel); font-weight: 600; font-size: 1.15rem; color: #fff; background: #050814;
+    border: 3px solid #4b5563; border-radius: 8px; padding: 8px 26px; display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 4px 0 #374151;
+  }
+  .btn-run:active { transform: translateY(3px); box-shadow: 0 1px 0 #374151; }
+  .btn-run[disabled] { opacity: .6; cursor: progress; }
+  .btn-ghost { font-weight: 700; font-size: .88rem; color: var(--ink); background: transparent; border: 2px solid #3b5a8f; border-radius: 999px; padding: 7px 16px; }
+  .btn-ghost:hover { background: rgba(255,255,255,.08); }
+  .btn-ghost.done { background: #15803d; border-color: #15803d; }
+
+  /* ---------- Output ---------- */
+  .output { background: var(--slate); min-width: 0; }
+  .outbar { position: sticky; top: 0; z-index: 2; background: var(--slate); display: flex; align-items: center; gap: 14px; padding: 10px 14px; }
+  .icon-btn { width: 40px; height: 40px; border: 0; background: transparent; color: #9ca3af; border-radius: 8px; display: grid; place-items: center; }
+  .icon-btn:hover { background: rgba(255,255,255,.08); color: #fff; }
+  .icon-btn svg { width: 26px; height: 26px; }
+  .pill { background: #030712; color: #fff; font-weight: 700; font-size: 1.15rem; padding: 10px 32px; border-radius: 999px; min-width: 220px; }
+  .outbar .spacer { flex: 1; }
+
+  #results { min-height: 200px; }
+  .empty { padding: 40px 24px; color: #9ca3af; }
+  .rt-wrap { overflow-x: auto; margin-bottom: 2px; }
+  table.rt { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: .98rem; color: #111827; }
+  .rt th, .rt td { text-align: left; padding: 12px; border: 1px solid var(--cell-line); }
+  .rt th { background: var(--head-bg); font-weight: 700; border-bottom: 2px solid #111827; }
+  .rt td { background: var(--cell-bg); }
+  .rt .enter { animation: drop .25s ease-out; }
+  @keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+  #toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 16px); background: #f9fafb; color: #111827; padding: 10px 20px; border-radius: 999px; font-weight: 700; font-size: .9rem; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 5; }
+  #toast.show { opacity: 1; transform: translate(-50%, 0); }
+  @media (prefers-reduced-motion: reduce) { .rt .enter { animation: none; } #toast { transition: none; } }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <section class="pane editor" aria-label="Trình soạn SQL">
+    <div class="tabbar">
+      <div class="tab">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="#f08a3c" stroke-width="2.4"><ellipse cx="16" cy="7" rx="10" ry="4"/><path d="M6 7v18c0 2.2 4.5 4 10 4s10-1.8 10-4V7"/><path d="M6 16c0 2.2 4.5 4 10 4s10-1.8 10-4"/></g></svg>
+        query.sql
+      </div>
+    </div>
+    <div class="code" id="code" role="region" aria-label="Mã SQL, chỉ đọc" tabindex="0"></div>
+    <div class="actions">
+      <span class="hint">Chỉ đọc. Bấm ▶ cạnh mỗi câu để chạy riêng câu đó.</span>
+      <button class="btn-ghost" id="copy-sql">Sao chép SQL</button>
+      <button class="btn-run" id="run"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M2 1l13 8-13 8z" fill="#fff"/></svg>Run</button>
+    </div>
+  </section>
+
+  <section class="pane output" aria-label="Kết quả">
+    <div class="outbar">
+      <button class="icon-btn" id="clear" title="Xóa output" aria-label="Xóa output">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-14 5.3"/><path d="M4 12a8 8 0 0 1 14-5.3"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg>
+      </button>
+      <span class="pill">Output</span>
+      <span class="spacer"></span>
+      <button class="btn-ghost" id="copy-out">Sao chép kết quả</button>
+    </div>
+    <div id="results" aria-live="polite"></div>
+  </section>
+
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============ Dữ liệu (từ ảnh chụp) ============ */
+const QUERIES = [
+  {
+    lines: ['SELECT id, title, MAX(players)', 'FROM games;'],
+    cols: ['id', 'title', 'MAX(players)'],
+    rows: [['30', 'Tetris', '1000000000']]
+  },
+  {
+    lines: ['SELECT language, COUNT(*)', 'FROM games', 'GROUP BY language;'],
+    cols: ['language', 'COUNT(*)'],
+    rows: [
+      ['Assembly Language', '1'], ['C', '1'], ['C#', '2'], ['C++', '27'], ['Java', '1'],
+      ['JavaScript', '1'], ['Lua', '2'], ['Papyrus', '1'], ['Redscript', '1'],
+      ['UnrealScript', '1'], ['Verse', '1'], ['Witcher Script', '1']
+    ]
+  },
+  {
+    lines: ['SELECT genre, AVG(metascore)', 'FROM games', 'GROUP BY genre;'],
+    cols: ['genre', 'AVG(metascore)'],
+    rows: [
+      ['Action', '86'], ['Action RPG', '90.72727272727273'], ['Action-Adventure', '93.625'],
+      ['Adventure', '85'], ['Battle Royale', '78'], ['MOBA', '84'], ['Online Tactical Shooter', '80'],
+      ['Party Game', '85'], ['Platform', '80'], ['RPG', '92.25'], ['Sandbox Adventure', '76.5'],
+      ["Shoot 'Em Up", '87'], ['Simulation', '89'], ['Social Simulation', '45'], ['Strategy', '61'],
+      ['Survival Horror', '91'], ['Tactical Shooter', '80']
+    ]
+  }
+];
+
+/* ============ Dựng editor ============ */
+const DOC = [];
+QUERIES.forEach((q, qi) => {
+  q.lines.forEach((t, li) => DOC.push({ q: qi, first: li === 0, text: t }));
+  if (qi < QUERIES.length - 1) DOC.push({ q: null, first: false, text: '' });
+});
+const SQL_TEXT = DOC.map(l => l.text).join('\n');
+
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+function highlight(line) {
+  return esc(line).replace(/(\bGROUP BY\b|\bSELECT\b|\bFROM\b)|(\b(?:MAX|COUNT|AVG)\b)|([;,()*])/g, (m, k, f, p) => {
+    if (k) return '<span class="k">' + m + '</span>';
+    if (f) return '<span class="f">' + m + '</span>';
+    return '<span class="d">' + m + '</span>';
+  });
+}
+
+const codeEl = document.getElementById('code');
+codeEl.innerHTML = DOC.map((l, i) => {
+  const gut = l.first
+    ? '<button class="line-run" data-q="' + l.q + '" aria-label="Chạy câu truy vấn ' + (l.q + 1) + '" title="Chạy riêng câu này">▶</button>'
+    : '';
+  return '<div class="ln"><span class="gut">' + gut + '</span><span class="num">' + (i + 1) + '</span><span class="src">' + (l.text ? highlight(l.text) : ' ') + '</span></div>';
+}).join('');
+
+/* ============ Kết quả ============ */
+const resultsEl = document.getElementById('results');
+let shown = [0, 1, 2];
+let running = false;
+
+function tableHTML(q, animate) {
+  return '<div class="rt-wrap"><table class="rt' + (animate ? ' enter' : '') + '"><thead><tr>' +
+    q.cols.map(c => '<th scope="col">' + esc(c) + '</th>').join('') + '</tr></thead><tbody>' +
+    q.rows.map(r => '<tr>' + r.map(v => '<td>' + esc(v) + '</td>').join('') + '</tr>').join('') +
+    '</tbody></table></div>';
+}
+function render(animateLast) {
+  if (!shown.length) {
+    resultsEl.innerHTML = '<p class="empty">Chưa có kết quả. Bấm Run để chạy các câu truy vấn.</p>';
+    return;
+  }
+  resultsEl.innerHTML = shown.map((qi, idx) => tableHTML(QUERIES[qi], animateLast && idx === shown.length - 1)).join('');
+}
+render(false);
+
+const runBtn = document.getElementById('run');
+runBtn.addEventListener('click', () => {
+  if (running) return;
+  running = true;
+  runBtn.disabled = true;
+  shown = [];
+  render(false);
+  QUERIES.forEach((_, i) => {
+    setTimeout(() => {
+      shown.push(i);
+      render(true);
+      if (i === QUERIES.length - 1) { running = false; runBtn.disabled = false; }
+    }, 300 * (i + 1));
+  });
+});
+
+codeEl.addEventListener('click', e => {
+  const b = e.target.closest('.line-run');
+  if (!b || running) return;
+  shown = [Number(b.dataset.q)];
+  render(true);
+});
+
+document.getElementById('clear').addEventListener('click', () => {
+  if (running) return;
+  shown = [];
+  render(false);
+});
+
+/* ============ Sao chép ============ */
+const toast = document.getElementById('toast');
+let tt;
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(tt);
+  tt = setTimeout(() => toast.classList.remove('show'), 1500);
+}
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }
+}
+function flash(btn, msg) {
+  const old = btn.textContent;
+  btn.textContent = '✓ Đã sao chép';
+  btn.classList.add('done');
+  showToast(msg);
+  setTimeout(() => { btn.textContent = old; btn.classList.remove('done'); }, 1500);
+}
+document.getElementById('copy-sql').addEventListener('click', async e => {
+  await copyText(SQL_TEXT);
+  flash(e.currentTarget, 'Đã sao chép SQL');
+});
+document.getElementById('copy-out').addEventListener('click', async e => {
+  const text = shown.map(qi => {
+    const q = QUERIES[qi];
+    return [q.cols.join('\t')].concat(q.rows.map(r => r.join('\t'))).join('\n');
+  }).join('\n\n');
+  if (!text) { showToast('Chưa có kết quả để sao chép'); return; }
+  await copyText(text);
+  flash(e.currentTarget, 'Đã sao chép kết quả');
+});
+</script>
+</body>
+</html>

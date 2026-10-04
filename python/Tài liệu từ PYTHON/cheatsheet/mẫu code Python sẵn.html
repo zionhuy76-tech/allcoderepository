@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Python Cheatsheet A–Z</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F6FA;
+  --surface: #FFFFFF;
+  --ink: #17203A;
+  --muted: #56617D;
+  --line: #DCE1EC;
+  --accent: #2F6DB5;
+  --accent-soft: #E6EEF9;
+  --yellow: #FFD43B;
+  --code-bg: #1F2637;
+  --code-ink: #E6EAF5;
+  --code-comment: #93A0D0;
+  --code-kw: #F58DB8;
+  --code-str: #B9E37E;
+  --sans: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10141F; --surface: #171D2C; --ink: #E8ECF7; --muted: #9CA7C4;
+    --line: #2A3350; --accent: #7DB2EC; --accent-soft: #1E2A44;
+    --code-bg: #0B0F19;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10141F; --surface: #171D2C; --ink: #E8ECF7; --muted: #9CA7C4;
+  --line: #2A3350; --accent: #7DB2EC; --accent-soft: #1E2A44;
+  --code-bg: #0B0F19;
+}
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 16px); scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--sans); font-size: 16px; line-height: 1.6;
+}
+.wrap { max-width: 1180px; margin: 0 auto; padding: 32px 20px 64px; }
+
+.top { margin-bottom: 28px; max-width: 62ch; }
+.top h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.01em; }
+.top p { margin: 0; color: var(--muted); }
+
+.tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 22px 0 8px; }
+.search {
+  flex: 1 1 260px; max-width: 420px; padding: 10px 14px; font: inherit; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+}
+.btn {
+  font: inherit; font-size: 0.9rem; font-weight: 500; cursor: pointer; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 9px 14px;
+}
+.btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+.btn.done { background: var(--yellow); border-color: var(--yellow); color: #17203A; }
+.search:focus-visible, .btn:focus-visible, .rail a:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+.count { color: var(--muted); font-size: 0.85rem; }
+
+.layout { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 20px; }
+.rail {
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.rail a {
+  width: 34px; height: 34px; display: grid; place-items: center; text-decoration: none;
+  color: var(--ink); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+}
+.rail a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.rail a[hidden] { display: none; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 16px; align-items: start; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px 14px 14px; min-width: 0;
+}
+.card[hidden] { display: none; }
+.card header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.letter { font-size: 1.7rem; font-weight: 700; color: var(--accent); width: 1.5ch; text-align: center; line-height: 1; }
+.card h2 { font-size: 1rem; font-weight: 700; margin: 0; flex: 1; line-height: 1.3; }
+.copy { padding: 6px 12px; font-size: 0.82rem; white-space: nowrap; }
+
+pre {
+  margin: 0; padding: 14px 16px; background: var(--code-bg); color: var(--code-ink);
+  border-radius: 8px; overflow-x: auto; font-family: var(--mono); font-size: 0.84rem; line-height: 1.65;
+  tab-size: 4; -webkit-user-select: text; user-select: text;
+}
+code { font-family: inherit; }
+.c { color: var(--code-comment); }
+.k { color: var(--code-kw); }
+.s { color: var(--code-str); }
+.use { margin: 12px 2px 0; font-size: 0.92rem; line-height: 1.6; }
+.use code { font-family: var(--mono); font-size: 0.85em; background: var(--accent-soft); color: var(--ink); padding: 1px 5px; border-radius: 4px; }
+.note { margin: 10px 2px 0; font-size: 0.85rem; color: var(--muted); }
+
+.empty { display: none; padding: 32px 0; color: var(--muted); }
+.empty.show { display: block; }
+
+@media (min-width: 980px) {
+  .layout { grid-template-columns: 44px 1fr; }
+  .rail { flex-direction: column; flex-wrap: nowrap; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); align-self: start; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>Python Cheatsheet A–Z</h1>
+    <p>26 mẫu code Python cơ bản. Bấm “Sao chép” trên từng thẻ để chép đoạn code, hoặc chép cả bộ một lần. Các lỗi cú pháp trong ảnh gốc đã được sửa nên code chạy được.</p>
+  </div>
+
+  <div class="tools">
+    <input id="q" class="search" type="search" placeholder="Tìm theo từ khóa: list, json, lambda, regex…" aria-label="Tìm trong cheatsheet" autocomplete="off">
+    <button id="copyAll" class="btn" type="button">Sao chép tất cả</button>
+    <span id="count" class="count" aria-live="polite"></span>
+  </div>
+
+  <div class="layout">
+    <nav class="rail" id="rail" aria-label="Chuyển nhanh đến chữ cái"></nav>
+    <main>
+      <div class="grid" id="grid">
+
+<article class="card" id="A" data-title="Arrays Lists mảng danh sách">
+<header><span class="letter">A</span><h2>Arrays (List trong Python)</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>numbers = [1, 2, 3, 4, 5]   # List có sẵn giá trị
+names = [None] * 5          # List kích thước cố định
+numbers[0] = 10             # Cập nhật phần tử đầu tiên</code></pre>
+<p class="use">List là danh sách có thứ tự, dùng để lưu nhiều giá trị trong một biến và sửa từng phần tử qua chỉ số (bắt đầu từ 0). <code>[None] * 5</code> tạo sẵn 5 ô trống để điền sau.</p>
+</article>
+
+<article class="card" id="B" data-title="Basic Syntax cú pháp cơ bản hello world">
+<header><span class="letter">B</span><h2>Basic Syntax – Cú pháp cơ bản</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>def main():                 # Định nghĩa hàm
+    print("Hello, World!")  # In ra màn hình
+
+main()                      # Gọi hàm</code></pre>
+<p class="use">Hàm <code>def</code> gom code thành một khối dùng lại được, <code>print()</code> in ra màn hình, gọi <code>main()</code> để chạy khối đó. Đây là khung chương trình nhỏ nhất.</p>
+</article>
+
+<article class="card" id="C" data-title="Classes Objects lớp đối tượng class">
+<header><span class="letter">C</span><h2>Classes &amp; Objects – Lớp và đối tượng</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>class Car:
+    def __init__(self, model, year):  # Hàm khởi tạo
+        self.model = model            # Thuộc tính của đối tượng
+        self.year = year
+
+my_car = Car("Tesla", 2022)           # Tạo đối tượng</code></pre>
+<p class="use">Class là bản thiết kế, object là thực thể tạo ra từ bản thiết kế đó. <code>__init__</code> chạy khi tạo object để gán dữ liệu cho <code>self</code>. Dùng khi cần gom dữ liệu và hành vi liên quan vào một chỗ.</p>
+</article>
+
+<article class="card" id="D" data-title="Data Types kiểu dữ liệu integer float string boolean dictionary">
+<header><span class="letter">D</span><h2>Data Types – Kiểu dữ liệu</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>n = 10                   # Integer (số nguyên)
+price = 99.99            # Float (số thực)
+letter = "A"             # Ký tự (thực chất là str dài 1)
+is_ok = True             # Boolean
+text = "Hello"           # String (chuỗi)
+data = {"a": 1, "b": 2}  # Dictionary (từ điển)</code></pre>
+<p class="use">Các kiểu dữ liệu cơ bản: số nguyên, số thực, chuỗi, đúng/sai và dict (lưu theo cặp khóa–giá trị). Python tự nhận kiểu, không cần khai báo trước.</p>
+<p class="note">Python không có kiểu char riêng: một ký tự vẫn là str.</p>
+</article>
+
+<article class="card" id="E" data-title="Exceptions try except xử lý ngoại lệ lỗi">
+<header><span class="letter">E</span><h2>Exceptions – Xử lý ngoại lệ</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>try:
+    x = int("42")                     # Code có thể gây lỗi
+except ValueError as e:               # Bắt đúng loại lỗi
+    print(e)
+else:
+    print("Conversion successful")    # Chạy nếu không có lỗi
+finally:
+    print("Done")                     # Luôn chạy</code></pre>
+<p class="use"><code>try/except</code> giúp chương trình không sập khi gặp lỗi. <code>else</code> chạy khi không có lỗi, <code>finally</code> luôn chạy (thường dùng để dọn dẹp, ví dụ đóng file).</p>
+</article>
+
+<article class="card" id="F" data-title="Functions hàm args kwargs">
+<header><span class="letter">F</span><h2>Functions – Hàm</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>def add(a, b=0, *args, **kwargs):  # Tham số linh hoạt
+    return a + b + sum(args)
+
+result = add(1, 2, 3, 4)           # 1+2+3+4 = 10</code></pre>
+<p class="use">Hàm có tham số mặc định (<code>b=0</code>), <code>*args</code> gom thêm các tham số vị trí thành tuple, <code>**kwargs</code> gom tham số đặt tên thành dict. Dùng khi chưa biết trước số lượng đầu vào.</p>
+</article>
+
+<article class="card" id="G" data-title="Generators yield trình sinh">
+<header><span class="letter">G</span><h2>Generators</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>def countdown(n):
+    while n &gt; 0:
+        yield n            # yield tạm dừng rồi chạy tiếp
+        n -= 1
+
+seq = list(countdown(3))   # [3, 2, 1]</code></pre>
+<p class="use">Generator tạo giá trị từng cái một khi cần, không dựng cả danh sách trong bộ nhớ. Hợp với dữ liệu lớn hoặc dãy dài vô hạn.</p>
+</article>
+
+<article class="card" id="H" data-title="Higher-Order Lambda map filter hàm bậc cao">
+<header><span class="letter">H</span><h2>Higher-Order &amp; Lambda</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>squares = list(map(lambda x: x * x, range(5)))          # Áp dụng hàm cho từng phần tử
+evens = list(filter(lambda x: x % 2 == 0, range(10)))   # Chỉ giữ số chẵn</code></pre>
+<p class="use"><code>map</code> biến đổi từng phần tử, <code>filter</code> giữ lại phần tử thỏa điều kiện, <code>lambda</code> là hàm ngắn không tên viết ngay tại chỗ.</p>
+</article>
+
+<article class="card" id="I" data-title="Iteration enumerate vòng lặp for">
+<header><span class="letter">I</span><h2>Iteration – Vòng lặp với enumerate</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>for i, v in enumerate(["a", "b", "c"]):  # enumerate cho cả index và giá trị
+    print(i, v)</code></pre>
+<p class="use"><code>enumerate</code> cho cả chỉ số lẫn giá trị khi duyệt danh sách, khỏi phải tự đếm biến <code>i</code>.</p>
+</article>
+
+<article class="card" id="J" data-title="JSON dumps loads">
+<header><span class="letter">J</span><h2>JSON</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>import json
+
+s = json.dumps({"a": 1})   # Chuyển dict thành chuỗi JSON
+obj = json.loads(s)        # Chuyển chuỗi JSON về dict</code></pre>
+<p class="use">Chuyển qua lại giữa dict Python và chuỗi JSON: <code>dumps</code> để gửi hoặc lưu, <code>loads</code> để đọc lại. Dùng khi làm việc với API hoặc file cấu hình.</p>
+</article>
+
+<article class="card" id="K" data-title="Keyword Arguments tham số đặt tên kwargs">
+<header><span class="letter">K</span><h2>Keyword Arguments – Tham số đặt tên</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>def greet(name, *, loud=False):    # Dấu * buộc phải gọi loud=...
+    return name.upper() if loud else name
+
+msg = greet("Akash", loud=True)    # "AKASH"</code></pre>
+<p class="use">Dấu <code>*</code> buộc các tham số phía sau phải gọi kèm tên (<code>loud=True</code>), giúp lời gọi hàm dễ đọc và tránh truyền nhầm thứ tự.</p>
+</article>
+
+<article class="card" id="L" data-title="List Comprehensions rút gọn danh sách vòng lặp lồng nhau">
+<header><span class="letter">L</span><h2>List Comprehensions</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>pairs = [(x, y) for x in range(3) for y in range(2)]  # Vòng lặp lồng nhau gọn</code></pre>
+<p class="use">Tạo list mới chỉ trong một dòng. Ở đây hai vòng <code>for</code> lồng nhau sinh ra mọi cặp (x, y), tổng cộng 6 cặp.</p>
+</article>
+
+<article class="card" id="M" data-title="Modules import math mô-đun">
+<header><span class="letter">M</span><h2>Modules</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>import math as m
+
+m.sqrt(16)   # Dùng hàm từ module → 4.0</code></pre>
+<p class="use">Nạp thư viện có sẵn (hoặc file .py khác) để dùng hàm của nó; <code>as m</code> đặt tên ngắn cho tiện gõ. <code>math.sqrt</code> tính căn bậc hai.</p>
+</article>
+
+<article class="card" id="N" data-title="Namedtuple collections">
+<header><span class="letter">N</span><h2>Namedtuple</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>from collections import namedtuple
+
+Point = namedtuple("Point", "x y")   # Đối tượng có cấu trúc, nhẹ
+p = Point(2, 3)                      # p.x == 2, p.y == 3</code></pre>
+<p class="use">Tạo kiểu dữ liệu giống tuple nhưng truy cập bằng tên (<code>p.x</code>) thay vì chỉ số. Nhẹ hơn class đầy đủ và không sửa được sau khi tạo.</p>
+</article>
+
+<article class="card" id="O" data-title="OOP Inheritance kế thừa override">
+<header><span class="letter">O</span><h2>OOP Inheritance – Kế thừa</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>class A:
+    def speak(self): return "A"
+
+class B(A):
+    def speak(self): return "B"   # Ghi đè phương thức của lớp cha
+
+x = B().speak()                   # "B"</code></pre>
+<p class="use">Lớp con <code>B</code> thừa hưởng mọi thứ của <code>A</code> và có thể ghi đè phương thức để đổi hành vi. Dùng để tái sử dụng code giữa các lớp có quan hệ với nhau.</p>
+</article>
+
+<article class="card" id="P" data-title="Paths pathlib đường dẫn file tồn tại">
+<header><span class="letter">P</span><h2>Paths</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>from pathlib import Path
+
+p = Path("notes.txt")
+exists = p.exists()   # Kiểm tra file có tồn tại không</code></pre>
+<p class="use"><code>pathlib</code> xử lý đường dẫn file theo kiểu hướng đối tượng, chạy được trên mọi hệ điều hành. <code>exists()</code> trả về True hoặc False.</p>
+</article>
+
+<article class="card" id="Q" data-title="Queue deque hàng đợi">
+<header><span class="letter">Q</span><h2>Queue – Hàng đợi</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>from collections import deque
+
+q = deque()
+q.append(1); q.append(2)   # Thêm vào hàng đợi
+x = q.popleft()            # Lấy phần tử đầu ra → 1</code></pre>
+<p class="use"><code>deque</code> là hàng đợi vào trước ra trước (FIFO), thêm và lấy ở hai đầu nhanh hơn list. Dùng để xếp hàng xử lý công việc hoặc duyệt đồ thị theo chiều rộng.</p>
+</article>
+
+<article class="card" id="R" data-title="Regex re findall biểu thức chính quy">
+<header><span class="letter">R</span><h2>Regex</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>import re
+
+m = re.findall(r"\d+", "a1b22c333")   # Lấy mọi số → ['1', '22', '333']</code></pre>
+<p class="use">Regex tìm mẫu trong chuỗi: <code>\d+</code> khớp dãy chữ số, <code>findall</code> trả về mọi kết quả tìm được. Dùng để trích số, email, ngày tháng... từ văn bản.</p>
+</article>
+
+<article class="card" id="S" data-title="Sets tập hợp union intersection hợp giao">
+<header><span class="letter">S</span><h2>Sets – Tập hợp</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>a = {1, 2, 3}
+b = {3, 4}
+u = a | b   # Hợp (Union): {1, 2, 3, 4}
+i = a &amp; b   # Giao (Intersection): {3}</code></pre>
+<p class="use">Set là tập hợp không trùng lặp và không có thứ tự. <code>|</code> gộp hai tập, <code>&amp;</code> lấy phần chung. Hợp để loại phần tử trùng và so sánh hai danh sách.</p>
+<p class="note">Ảnh gốc viết a bằng ngoặc tròn, nhưng toán tử | và &amp; chỉ dùng được với set nên đã đổi thành ngoặc nhọn.</p>
+</article>
+
+<article class="card" id="T" data-title="Tuples Unpacking giải nén">
+<header><span class="letter">T</span><h2>Tuples &amp; Unpacking</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>t = (1, 2, 3)
+a, b, c = t   # Giải nén giá trị</code></pre>
+<p class="use">Tuple là dãy không sửa được sau khi tạo. Giải nén gán từng phần tử vào từng biến trong một dòng, cũng là cách để hàm trả về nhiều giá trị.</p>
+</article>
+
+<article class="card" id="U" data-title="Unit Testing unittest kiểm thử">
+<header><span class="letter">U</span><h2>Unit Testing</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>import unittest
+
+class T(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(1 + 1, 2)
+
+unittest.main(argv=[""], exit=False)</code></pre>
+<p class="use">Viết test tự động: mỗi hàm <code>test_</code> kiểm tra một kết quả mong đợi bằng <code>assertEqual</code>. Phần <code>argv=[""], exit=False</code> giúp chạy được trong Jupyter hoặc IDLE mà không thoát chương trình.</p>
+</article>
+
+<article class="card" id="V" data-title="Variables Scope biến phạm vi local global">
+<header><span class="letter">V</span><h2>Variables &amp; Scope – Biến và phạm vi</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>x = 1
+
+def f():
+    x = 2        # Biến cục bộ
+    return x
+
+y = f()          # y = 2, x toàn cục vẫn là 1</code></pre>
+<p class="use">Biến tạo trong hàm là biến cục bộ: gán <code>x = 2</code> trong hàm không làm đổi <code>x</code> ở ngoài. Cần hiểu để tránh lỗi trùng tên biến.</p>
+</article>
+
+<article class="card" id="W" data-title="With Context Manager open file tự đóng">
+<header><span class="letter">W</span><h2>With (Context Manager)</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>with open("file.txt", "w") as f:   # Tự động đóng file
+    f.write("hello")</code></pre>
+<p class="use"><code>with</code> tự đóng file (hoặc giải phóng tài nguyên) khi ra khỏi khối, kể cả khi có lỗi xảy ra. Chế độ <code>"w"</code> ghi đè nội dung file cũ.</p>
+</article>
+
+<article class="card" id="X" data-title="XML Parsing ElementTree">
+<header><span class="letter">X</span><h2>XML Parsing</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>import xml.etree.ElementTree as ET
+
+root = ET.fromstring("&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;/a&gt;")
+value = root.findtext("b")   # Lấy giá trị thẻ → "1"</code></pre>
+<p class="use">Đọc dữ liệu XML: <code>fromstring</code> biến chuỗi XML thành cây, <code>findtext</code> lấy nội dung của thẻ con theo tên.</p>
+</article>
+
+<article class="card" id="Y" data-title="Yield From generator ủy quyền">
+<header><span class="letter">Y</span><h2>Yield From</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>def a():
+    yield from [1, 2, 3]   # Ủy quyền vòng lặp
+
+out = list(a())            # [1, 2, 3]</code></pre>
+<p class="use"><code>yield from</code> chuyển việc sinh giá trị sang một dãy khác, gọn hơn vòng <code>for</code> + <code>yield</code>. Dùng khi ghép các generator lồng nhau.</p>
+</article>
+
+<article class="card" id="Z" data-title="Zip File Handling nén zipfile">
+<header><span class="letter">Z</span><h2>Zip File Handling</h2><button class="btn copy" type="button">Sao chép</button></header>
+<pre><code>from zipfile import ZipFile
+
+with ZipFile("data.zip", "w") as z:
+    z.write("file.txt")    # Thêm file vào zip</code></pre>
+<p class="use">Tạo file .zip và thêm file vào. Chế độ <code>"w"</code> tạo mới hoặc ghi đè. Dùng để nén, gộp nhiều file trước khi gửi hoặc lưu trữ.</p>
+<p class="note">File file.txt phải tồn tại trong thư mục đang chạy, nếu không sẽ báo FileNotFoundError.</p>
+</article>
+
+      </div>
+      <p id="empty" class="empty">Không có mục nào khớp. Thử từ khóa khác, ví dụ: list, json, lambda.</p>
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  var cards = [].slice.call(document.querySelectorAll('.card'));
+  var rail = document.getElementById('rail');
+  var qInput = document.getElementById('q');
+  var countEl = document.getElementById('count');
+  var emptyEl = document.getElementById('empty');
+  var copyAllBtn = document.getElementById('copyAll');
+
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function norm(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
+  }
+
+  // Sao chép: thử Clipboard API, nếu bị chặn thì dùng cách dự phòng
+  function copyText(text) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      return ok;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return fallback(); });
+    }
+    return Promise.resolve(fallback());
+  }
+
+  function flash(btn, original, ok) {
+    btn.textContent = ok ? 'Đã sao chép' : 'Chọn code rồi nhấn Ctrl+C';
+    if (ok) btn.classList.add('done');
+    setTimeout(function () { btn.textContent = original; btn.classList.remove('done'); }, 1800);
+  }
+
+  var re = /(#.*$)|("[^"\n]*")|\b(def|class|import|from|as|return|yield|for|in|while|if|else|try|except|finally|with|lambda)\b/gm;
+
+  cards.forEach(function (card) {
+    var code = card.querySelector('code');
+    var raw = code.textContent.replace(/\n$/, '');
+    card.dataset.raw = raw;
+    card.dataset.hay = norm(card.dataset.title + ' ' + raw);
+    code.innerHTML = esc(raw).replace(re, function (m, cm, st, kw) {
+      if (cm) return '<span class="c">' + m + '</span>';
+      if (st) return '<span class="s">' + m + '</span>';
+      return '<span class="k">' + m + '</span>';
+    });
+
+    var letter = card.id;
+    var link = document.createElement('a');
+    link.href = '#' + letter;
+    link.textContent = letter;
+    link.setAttribute('aria-label', 'Đến mục ' + letter);
+    rail.appendChild(link);
+    card._link = link;
+
+    var btn = card.querySelector('.copy');
+    btn.setAttribute('aria-label', 'Sao chép đoạn code mục ' + letter);
+    btn.addEventListener('click', function () {
+      copyText(raw).then(function (ok) { flash(btn, 'Sao chép', ok); });
+    });
+  });
+
+  copyAllBtn.addEventListener('click', function () {
+    var parts = cards.map(function (c) {
+      var title = c.querySelector('h2').textContent;
+      return '# ' + c.id + ' - ' + title + '\n' + c.dataset.raw;
+    });
+    copyText(parts.join('\n\n\n') + '\n').then(function (ok) { flash(copyAllBtn, 'Sao chép tất cả', ok); });
+  });
+
+  function applyFilter() {
+    var q = norm(qInput.value.trim());
+    var shown = 0;
+    cards.forEach(function (c) {
+      var match = !q || c.dataset.hay.indexOf(q) !== -1;
+      c.hidden = !match;
+      c._link.hidden = !match;
+      if (match) shown++;
+    });
+    countEl.textContent = 'Hiển thị ' + shown + '/' + cards.length + ' mục';
+    emptyEl.classList.toggle('show', shown === 0);
+  }
+  qInput.addEventListener('input', applyFilter);
+  applyFilter();
+})();
+</script>
+</body>
+</html>
