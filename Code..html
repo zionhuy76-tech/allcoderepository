@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Góc học lập trình</title>
+<title>Khu lưu trữ cheatsheet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -939,7 +939,7 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--bar-h) + 2
     </div>
   </dialog>
   <header class="top">
-    <h1>Góc học lập trình</h1>
+    <h1>Khu lưu trữ cheatsheet</h1>
     <p>Nơi gom mọi thứ liên quan đến việc học code. Mỗi khu có phần nội dung riêng, chọn khu ở thanh bên dưới.</p>
     <div class="term" aria-hidden="true">
       <span class="term-dots"><i></i><i></i><i></i></span>
@@ -5286,6 +5286,107 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
   }
   var CLI_COUNT = CLI_CMD.sections.reduce(function (n, s) { return n + s.rows.length; }, 0) + CLI_TIPS.length;
 
+  /* ---------- Cheatsheet Git & GitHub ---------- */
+  var GIT_CMD = {
+    sections: [
+      { name: "Cài đặt lần đầu", rows: [
+        ["git --version", "Kiểm tra máy đã cài Git chưa", "git --version", "git version 2.x.x"],
+        ["git config user.name", "Khai báo tên hiện trong mọi commit (làm một lần)", "git config --global user.name \"Ten Cua Ban\"", ""],
+        ["git config user.email", "Khai báo email, nên trùng email tài khoản GitHub", "git config --global user.email \"ban@example.com\"", ""]
+      ]},
+      { name: "Bắt đầu một dự án", rows: [
+        ["git init", "Biến thư mục hiện tại thành repo Git", "git init", ""],
+        ["git clone", "Tải một repo từ GitHub về máy", "git clone https://github.com/user/repo.git", ""],
+        ["git status", "Xem file nào đã sửa, đã add hay chưa (dùng rất nhiều)", "git status", ""]
+      ]},
+      { name: "Lưu thay đổi", rows: [
+        ["git add", "Đưa file vào danh sách chuẩn bị commit", "git add index.html", ""],
+        ["git add .", "Đưa tất cả file đã thay đổi vào danh sách", "git add .", ""],
+        ["git commit", "Lưu một mốc lịch sử kèm lời nhắn", "git commit -m \"Thêm trang giới thiệu\"", ""],
+        ["git log", "Xem lịch sử commit, mỗi commit một dòng", "git log --oneline", ""],
+        ["git diff", "Xem chi tiết dòng nào đã thay đổi", "git diff", ""]
+      ]},
+      { name: "Nhánh (branch)", rows: [
+        ["git branch", "Liệt kê các nhánh, nhánh đang đứng có dấu *", "git branch", ""],
+        ["git switch -c", "Tạo nhánh mới và chuyển sang nhánh đó", "git switch -c tinh-nang-moi", ""],
+        ["git switch", "Chuyển sang một nhánh có sẵn", "git switch main", ""],
+        ["git merge", "Gộp nhánh khác vào nhánh đang đứng", "git merge tinh-nang-moi", ""],
+        ["git branch -d", "Xóa nhánh đã gộp xong", "git branch -d tinh-nang-moi", ""]
+      ]},
+      { name: "Làm việc với GitHub", rows: [
+        ["git remote add", "Nối repo trên máy với repo trống trên GitHub", "git remote add origin https://github.com/user/repo.git", ""],
+        ["git push -u", "Đẩy code lên GitHub lần đầu (nhớ luôn nhánh)", "git push -u origin main", ""],
+        ["git push", "Đẩy các commit mới lên GitHub", "git push", ""],
+        ["git pull", "Kéo thay đổi mới từ GitHub về máy", "git pull", ""],
+        ["git fetch", "Tải thông tin mới về nhưng chưa gộp vào code", "git fetch", ""]
+      ]},
+      { name: "Hoàn tác", rows: [
+        ["git restore", "Bỏ thay đổi chưa add của một file, quay về bản đã commit", "git restore index.html", ""],
+        ["git restore --staged", "Rút file ra khỏi danh sách đã add, vẫn giữ thay đổi", "git restore --staged index.html", ""],
+        ["git commit --amend", "Sửa lời nhắn của commit cuối (chưa push)", "git commit --amend -m \"Lời nhắn mới\"", ""],
+        ["git revert", "Tạo commit mới để đảo ngược một commit cũ", "git revert HEAD", ""]
+      ]}
+    ]
+  };
+  var GIT_TIPS = [
+    ["Vòng lặp hằng ngày", "Sửa code, rồi git status, git add ., git commit -m, cuối cùng git push. Lặp lại mỗi khi xong một phần việc nhỏ.", "git add . && git commit -m \"Mô tả ngắn\" && git push"],
+    ["Viết lời nhắn commit ngắn và rõ", "Nói thay đổi này làm gì, ví dụ \"Sửa lỗi nút đăng nhập\". Tránh những lời nhắn như \"update\" hay \"abc\".", ""],
+    ["Đừng đưa file bí mật lên GitHub", "Mật khẩu, khóa API, file .env cần ghi tên vào file .gitignore trước khi commit. Đã đẩy lên rồi thì coi như lộ.", ".env"],
+    ["GitHub không nhận mật khẩu khi push", "Khi dùng HTTPS, bạn cần Personal Access Token thay cho mật khẩu, hoặc cấu hình khóa SSH.", ""],
+    ["Pull request là gì", "Đẩy nhánh của bạn lên GitHub rồi mở pull request để người khác xem và duyệt trước khi gộp vào main.", ""]
+  ];
+  function buildGit() {
+    var intro = el('p', 'tab-intro', 'Bảng tra nhanh các lệnh Git và GitHub hay dùng, xếp theo thứ tự bạn sẽ gặp: cài đặt, bắt đầu dự án, lưu thay đổi, nhánh, đẩy lên GitHub và hoàn tác.');
+    var sections = GIT_CMD.sections.map(function (sec, i) { return section('git-' + i, sec.name, sec.rows.map(fnItem), null); });
+    sections.push(section('git-tips', 'Mẹo khi học', GIT_TIPS.map(tipItem), null));
+    return { before: [intro], sections: sections };
+  }
+  var GIT_COUNT = GIT_CMD.sections.reduce(function (n, s) { return n + s.rows.length; }, 0) + GIT_TIPS.length;
+
+  /* ---------- Cheatsheet Markdown ---------- */
+  var MD_CMD = {
+    sections: [
+      { name: "Tiêu đề và chữ", rows: [
+        ["# Tiêu đề", "Tiêu đề lớn nhất. Thêm # để giảm cấp, tối đa 6 cấp", "# Xin chào\n## Mục nhỏ\n### Mục nhỏ hơn", "Ba tiêu đề giảm dần kích thước"],
+        ["**đậm**", "Chữ in đậm", "**Quan trọng**", "Quan trọng (đậm)"],
+        ["*nghiêng*", "Chữ in nghiêng", "*Nhấn nhẹ*", "Nhấn nhẹ (nghiêng)"],
+        ["~~gạch~~", "Chữ bị gạch ngang", "~~làm sai~~", "làm sai (gạch ngang)"],
+        ["`code`", "Đoạn code ngắn nằm trong dòng chữ", "Dùng lệnh `git status` nhé", "git status hiện kiểu code"],
+        ["> trích dẫn", "Khối trích dẫn", "> Học mỗi ngày một chút", ""],
+        ["---", "Đường kẻ ngang ngăn cách các phần", "---", ""]
+      ]},
+      { name: "Danh sách", rows: [
+        ["- mục", "Danh sách có chấm tròn. Cũng dùng được dấu * hoặc +", "- Táo\n- Cam\n- Chuối", ""],
+        ["1. mục", "Danh sách đánh số", "1. Mở terminal\n2. Gõ lệnh\n3. Nhấn Enter", ""],
+        ["- [ ] việc", "Danh sách việc cần làm, [x] là đã xong (GitHub hiển thị ô tick)", "- [x] Học cd\n- [ ] Học git", ""],
+        ["  - mục con", "Thụt vào hai hoặc bốn dấu cách để tạo mục con", "- Trái cây\n  - Táo\n  - Cam", ""]
+      ]},
+      { name: "Liên kết và ảnh", rows: [
+        ["[chữ](url)", "Liên kết", "[Trang GitHub](https://github.com)", "Trang GitHub (bấm được)"],
+        ["![mô tả](url)", "Chèn ảnh, phần mô tả hiện khi ảnh không tải được", "![Logo](logo.png)", ""],
+        ["<url>", "Biến một địa chỉ thành liên kết bấm được", "<https://github.com>", ""]
+      ]},
+      { name: "Code và bảng", rows: [
+        ["```", "Khối code nhiều dòng. Ghi tên ngôn ngữ sau ba dấu ` để tô màu", "```python\nprint(\"Xin chào\")\n```", ""],
+        ["| bảng |", "Bảng. Dòng thứ hai bằng dấu gạch ngăn phần đầu cột", "| Tên | Tuổi |\n|-----|------|\n| An  | 18   |\n| Bình | 19  |", ""],
+        ["\\", "Dấu gạch chéo ngược để hiện nguyên ký tự đặc biệt", "\\*không nghiêng\\*", "*không nghiêng*"]
+      ]}
+    ]
+  };
+  var MD_TIPS = [
+    ["Markdown dùng ở đâu", "File README.md trên GitHub, ghi chú trong nhiều ứng dụng, tài liệu của dự án. File Markdown có đuôi .md.", ""],
+    ["Xuống dòng cần chú ý", "Nhấn Enter một lần thường không xuống dòng. Hãy để một dòng trống giữa hai đoạn, hoặc thêm hai dấu cách ở cuối dòng.", ""],
+    ["Xem trước khi viết", "Trong VS Code, nhấn Ctrl+Shift+V để mở bản xem trước, thấy ngay chữ đậm, bảng và danh sách trông thế nào.", "Ctrl+Shift+V"],
+    ["README tốt thường có gì", "Tên dự án, một câu mô tả, cách cài đặt, cách chạy và ảnh minh họa. Viết bằng Markdown là đủ.", ""]
+  ];
+  function buildMd() {
+    var intro = el('p', 'tab-intro', 'Bảng tra nhanh cú pháp Markdown để viết README và ghi chú. Mỗi dòng gồm ký hiệu, ý nghĩa, ví dụ để chép và kết quả hiển thị (sau dấu ->).');
+    var sections = MD_CMD.sections.map(function (sec, i) { return section('md-' + i, sec.name, sec.rows.map(fnItem), null); });
+    sections.push(section('md-tips', 'Mẹo khi học', MD_TIPS.map(tipItem), null));
+    return { before: [intro], sections: sections };
+  }
+  var MD_COUNT = MD_CMD.sections.reduce(function (n, s) { return n + s.rows.length; }, 0) + MD_TIPS.length;
+
   /* ---------- DANH SÁCH TAB ----------
      Muốn thêm một mục mới vào trang: viết một hàm build trả về
      { before: [node], sections: [section(...)], after: [node] }
@@ -5312,7 +5413,11 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
     { id: 'sql', label: 'Chạy thử SQL', count: 0,
       ph: 'Chưa có nội dung để tìm', build: buildSqlRunner },
     { id: 'cli', label: 'Cheatsheet Command Line', count: CLI_COUNT,
-      ph: 'Tìm: cd, ls, mkdir, rm, cat…', build: buildCli }
+      ph: 'Tìm: cd, ls, mkdir, rm, cat…', build: buildCli },
+    { id: 'gitc', label: 'Cheatsheet Git & GitHub', count: GIT_COUNT,
+      ph: 'Tìm: commit, push, branch, merge…', build: buildGit },
+    { id: 'mdc', label: 'Cheatsheet Markdown', count: MD_COUNT,
+      ph: 'Tìm: tiêu đề, bảng, danh sách, ảnh…', build: buildMd }
   ];
   function tabDef(id) {
     for (var i = 0; i < TABS.length; i++) if (TABS[i].id === id) return TABS[i];
@@ -5340,10 +5445,12 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
           blurb: 'Ba tab đi từ dễ đến đầy đủ: Mẫu code theo chủ đề (để học cú pháp), Hàm thường dùng (tra nhanh theo kiểu dữ liệu), Built-in đầy đủ (danh sách hàm có sẵn của Python).',
           tabs: ['code', 'fn', 'bi'] }
       ] },
-    { id: 'cli', label: 'Khu Command Line',
-      blurb: 'Cheatsheet các lệnh terminal cơ bản: di chuyển, tạo, xem, ghi, copy và xóa file.',
+    { id: 'cli', label: 'Khu Git',
+      blurb: 'Cheatsheet Git & GitHub, dòng lệnh terminal và Markdown. Chọn khu con bên dưới.',
       groups: [
-        { id: 'cli-main', label: 'Command Line', tabs: ['cli'] }
+        { id: 'cli-main', label: 'Command Line', tabs: ['cli'] },
+        { id: 'cli-git', label: 'Git & GitHub', blurb: 'Các lệnh Git để lưu lịch sử code và đẩy lên GitHub.', tabs: ['gitc'] },
+        { id: 'cli-md', label: 'Markdown', blurb: 'Cú pháp Markdown để viết README và ghi chú.', tabs: ['mdc'] }
       ] },
     { id: 'sql', label: 'Khu SQL',
       blurb: 'Cheatsheet các lệnh SQL thường dùng, và một khung chạy thử SQL ngay trong trang.',
@@ -5477,7 +5584,7 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
     py: ['def', '{ }', 'import', '[ ]', 'pip'],
     sql: ['SELECT', 'JOIN', 'WHERE', 'COUNT(*)', 'GROUP BY'],
     road: ['HTML', 'CSS', 'JS', 'React', 'Git'],
-    cli: ['cd', 'ls', 'mkdir', 'cat', 'rm']
+    cli: ['git', 'cd', 'push', '# md', 'ls']
   };
   var glyphEl = $('glyphs'), glyphZone = '';
   function setGlyphs(zone) {
@@ -5741,7 +5848,7 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
     py: [['>>>', 'print("Xin chào, Python!")'], ['$', 'py -m pip install requests'], ['>>>', 'import os, json']],
     sql: [['sqlite>', 'SELECT * FROM hoc_vien;'], ['sqlite>', 'SELECT COUNT(*) FROM bai_hoc;'], ['sqlite>', '.tables']],
     road: [['$', 'git commit -m "xong thêm 1 bài"'], ['$', 'npm create vite@latest'], ['$', 'git push origin main']],
-    cli: [['$', 'cd Desktop/projects'], ['$', 'ls'], ['$', 'mkdir homework'], ['$', 'echo Hello >> note.txt']]
+    cli: [['$', 'cd Desktop/projects'], ['$', 'git commit -m "xong 1 bài"'], ['$', 'git push origin main'], ['$', 'echo "# README" > README.md'], ['$', 'git status']]
   };
   var psEl = document.getElementById('termPs'), txEl = document.getElementById('termTx');
   var zone = '', run = 0, timer = 0;
@@ -5773,7 +5880,7 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
     py: ['def', 'import', '{ }', '[ ]', '( )', ':', '==', 'None', 'for', 'pip', '#', '>>>'],
     sql: ['SELECT', 'FROM', 'JOIN', 'WHERE', '*', ';', 'COUNT', 'GROUP BY', '=', 'ON', 'AS', '( )'],
     road: ['</>', 'HTML', 'CSS', '{ }', '=>', 'git', 'JS', '#', ';', '( )', 'npm', '.js'],
-    cli: ['$', '>_', 'cd', 'ls', 'pwd', '>', '>>', 'rm', 'cat', 'mkdir', '..', '/']
+    cli: ['$', 'git', 'commit', 'push', 'cd', '#', '**', '>', '[ ]', '.md', 'pull', '>_']
   };
   var deco = document.querySelector('.deco'), symEls = [];
   if (deco) {
