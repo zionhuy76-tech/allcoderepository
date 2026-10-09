@@ -3961,6 +3961,78 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "Lũy thừa",
      "pow(2, 3)",
      "8"
+    ],
+    [
+     "divmod()",
+     "Trả về cả thương lẫn số dư trong một lần",
+     "divmod(17, 5)",
+     "(3, 2)"
+    ],
+    [
+     "//",
+     "Chia lấy phần nguyên",
+     "17 // 5",
+     "3"
+    ],
+    [
+     "%",
+     "Chia lấy phần dư (hay dùng để kiểm tra số chẵn lẻ)",
+     "17 % 5",
+     "2"
+    ],
+    [
+     "**",
+     "Lũy thừa",
+     "2 ** 10",
+     "1024"
+    ],
+    [
+     "round() số .5",
+     "Python làm tròn về số chẵn gần nhất, không phải luôn làm tròn lên",
+     "round(2.5)\nround(3.5)",
+     "2 và 4"
+    ],
+    [
+     "round() số âm",
+     "Làm tròn tới hàng chục, hàng trăm",
+     "round(1234, -2)",
+     "1200"
+    ],
+    [
+     "math.sqrt()",
+     "Căn bậc hai (cần import math)",
+     "import math\nmath.sqrt(16)",
+     "4.0"
+    ],
+    [
+     "math.ceil() / floor()",
+     "Làm tròn lên / làm tròn xuống",
+     "math.ceil(4.1)\nmath.floor(4.9)",
+     "5 và 4"
+    ],
+    [
+     "math.pi",
+     "Hằng số pi",
+     "math.pi",
+     "3.141592653589793"
+    ],
+    [
+     "math.isclose()",
+     "So sánh hai số thực có gần bằng nhau không (tránh sai số 0.1 + 0.2)",
+     "math.isclose(0.1 + 0.2, 0.3)",
+     "True"
+    ],
+    [
+     "bin() / hex() / oct()",
+     "Đổi số nguyên sang chuỗi nhị phân / thập lục / bát phân",
+     "bin(10)\nhex(255)",
+     "'0b1010' và '0xff'"
+    ],
+    [
+     "float('inf')",
+     "Vô cực, hay dùng làm giá trị khởi đầu khi đi tìm số nhỏ nhất",
+     "nho_nhat = float('inf')",
+     ""
     ]
    ]
   },
@@ -4002,6 +4074,126 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "Thay thế nội dung",
      "\"hi\".replace(\"h\",\"H\")",
      "\"Hi\""
+    ],
+    [
+     "strip()",
+     "Xóa khoảng trắng hai đầu (lstrip bên trái, rstrip bên phải)",
+     "'  xin chào  '.strip()",
+     "'xin chào'"
+    ],
+    [
+     "find()",
+     "Tìm vị trí chuỗi con, không thấy trả về -1",
+     "'Nha Trang'.find('Trang')",
+     "4"
+    ],
+    [
+     "index()",
+     "Giống find() nhưng không thấy thì báo lỗi ValueError",
+     "'Nha Trang'.index('Nha')",
+     "0"
+    ],
+    [
+     "count()",
+     "Đếm số lần chuỗi con xuất hiện",
+     "'banana'.count('a')",
+     "3"
+    ],
+    [
+     "startswith() / endswith()",
+     "Kiểm tra chuỗi bắt đầu / kết thúc bằng gì",
+     "'report.pdf'.endswith('.pdf')",
+     "True"
+    ],
+    [
+     "capitalize()",
+     "Viết hoa chữ cái đầu của cả chuỗi",
+     "'hello world'.capitalize()",
+     "'Hello world'"
+    ],
+    [
+     "title()",
+     "Viết hoa chữ cái đầu mỗi từ",
+     "'hello world'.title()",
+     "'Hello World'"
+    ],
+    [
+     "swapcase()",
+     "Đảo hoa thành thường và ngược lại",
+     "'Hello'.swapcase()",
+     "'hELLO'"
+    ],
+    [
+     "isdigit() / isalpha()",
+     "Kiểm tra toàn chữ số / toàn chữ cái (isalnum: chữ hoặc số)",
+     "'2026'.isdigit()",
+     "True"
+    ],
+    [
+     "zfill()",
+     "Thêm số 0 vào đầu cho đủ độ dài",
+     "'7'.zfill(3)",
+     "'007'"
+    ],
+    [
+     "center() / ljust() / rjust()",
+     "Căn chữ vào giữa / trái / phải trong độ rộng cho trước",
+     "'abc'.center(7, '*')",
+     "'**abc**'"
+    ],
+    [
+     "splitlines()",
+     "Tách chuỗi nhiều dòng thành list các dòng",
+     "'a\\nb\\nc'.splitlines()",
+     "['a', 'b', 'c']"
+    ],
+    [
+     "partition()",
+     "Cắt chuỗi làm 3 phần tại dấu phân cách đầu tiên",
+     "'key=value'.partition('=')",
+     "('key', '=', 'value')"
+    ],
+    [
+     "[::-1]",
+     "Đảo ngược chuỗi",
+     "'abc'[::-1]",
+     "'cba'"
+    ],
+    [
+     "Cắt chuỗi [a:b]",
+     "Lấy các ký tự từ vị trí a đến trước b (vị trí đếm từ 0)",
+     "'Hello'[1:4]",
+     "'ell'"
+    ],
+    [
+     "Chỉ số âm",
+     "Đếm từ cuối chuỗi: -1 là ký tự cuối",
+     "'Hello'[-1]",
+     "'o'"
+    ],
+    [
+     "in",
+     "Kiểm tra chuỗi con có nằm trong chuỗi không",
+     "'ell' in 'Hello'",
+     "True"
+    ],
+    [
+     "+ và *",
+     "Nối chuỗi và lặp chuỗi",
+     "'ab' + 'cd'\n'ab' * 3",
+     "'abcd' và 'ababab'"
+    ],
+    [
+     "ord() / chr()",
+     "Đổi ký tự sang mã số và ngược lại",
+     "ord('A')\nchr(97)",
+     "65 và 'a'"
+    ],
+    [
+     "encode() / decode()",
+     "Đổi chuỗi sang bytes và ngược lại (thường dùng utf-8)",
+     "'Việt'.encode('utf-8')",
+     ""
     ]
    ]
   },
@@ -4042,6 +4234,120 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "sort()",
      "Sắp xếp tại chỗ",
      "a.sort()",
+     ""
+    ],
+    [
+     "count()",
+     "Đếm số lần một giá trị xuất hiện",
+     "[1, 2, 2, 3].count(2)",
+     "2"
+    ],
+    [
+     "index()",
+     "Vị trí đầu tiên của một giá trị",
+     "['a', 'b', 'c'].index('b')",
+     "1"
+    ],
+    [
+     "reverse()",
+     "Đảo ngược list tại chỗ",
+     "ds.reverse()",
+     ""
+    ],
+    [
+     "copy()",
+     "Tạo bản sao nông của list",
+     "ban_sao = ds.copy()",
+     ""
+    ],
+    [
+     "clear()",
+     "Xóa sạch mọi phần tử",
+     "ds.clear()",
+     ""
+    ],
+    [
+     "sorted()",
+     "Trả về list mới đã sắp xếp, list gốc không đổi",
+     "sorted([3, 1, 2])",
+     "[1, 2, 3]"
+    ],
+    [
+     "sort(reverse=True)",
+     "Sắp xếp giảm dần",
+     "ds.sort(reverse=True)",
+     ""
+    ],
+    [
+     "sort(key=)",
+     "Sắp xếp theo tiêu chí riêng",
+     "ten.sort(key=len)",
+     ""
+    ],
+    [
+     "Cắt list [a:b]",
+     "Lấy một đoạn của list",
+     "[10, 20, 30, 40][1:3]",
+     "[20, 30]"
+    ],
+    [
+     "[::-1]",
+     "Đảo ngược list thành list mới",
+     "[1, 2, 3][::-1]",
+     "[3, 2, 1]"
+    ],
+    [
+     "del",
+     "Xóa phần tử theo vị trí hoặc cả một đoạn",
+     "del ds[0]\ndel ds[1:3]",
+     ""
+    ],
+    [
+     "in",
+     "Kiểm tra một giá trị có trong list không",
+     "3 in [1, 2, 3]",
+     "True"
+    ],
+    [
+     "+ và *",
+     "Nối list và lặp list",
+     "[1, 2] + [3]\n[0] * 3",
+     "[1, 2, 3] và [0, 0, 0]"
+    ],
+    [
+     "zip()",
+     "Ghép hai list thành các cặp",
+     "list(zip([1, 2], ['a', 'b']))",
+     "[(1, 'a'), (2, 'b')]"
+    ],
+    [
+     "any() / all()",
+     "Có ít nhất một / mọi phần tử đúng",
+     "all([x > 0 for x in ds])",
+     ""
+    ],
+    [
+     "list(set())",
+     "Loại bỏ phần tử trùng (mất thứ tự ban đầu)",
+     "list(set([1, 2, 2, 3]))",
+     "[1, 2, 3]"
+    ],
+    [
+     "dict.fromkeys()",
+     "Loại bỏ trùng nhưng giữ nguyên thứ tự",
+     "list(dict.fromkeys([3, 1, 3, 2]))",
+     "[3, 1, 2]"
+    ],
+    [
+     "List 2 chiều",
+     "List chứa các list con, truy cập bằng hai chỉ số",
+     "luoi = [[1, 2], [3, 4]]\nluoi[1][0]",
+     "3"
+    ],
+    [
+     "copy.deepcopy()",
+     "Sao chép sâu, dùng cho list lồng nhau",
+     "import copy\nban_sao = copy.deepcopy(luoi)",
      ""
     ]
    ]
@@ -4084,6 +4390,54 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "Gán nhiều biến cùng lúc",
      "x, y = (1, 2)",
      ""
+    ],
+    [
+     "Cắt tuple [a:b]",
+     "Lấy một đoạn, kết quả vẫn là tuple",
+     "(1, 2, 3, 4)[1:3]",
+     "(2, 3)"
+    ],
+    [
+     "Tuple một phần tử",
+     "Phải có dấu phẩy phía sau, thiếu dấu phẩy sẽ không phải tuple",
+     "mot = (5,)",
+     ""
+    ],
+    [
+     "Hoán đổi giá trị",
+     "Đổi chỗ hai biến không cần biến tạm",
+     "a, b = b, a",
+     ""
+    ],
+    [
+     "*rest",
+     "Gom phần còn lại khi tách tuple",
+     "dau, *con_lai = (1, 2, 3, 4)",
+     "con_lai = [2, 3, 4]"
+    ],
+    [
+     "in",
+     "Kiểm tra một giá trị có trong tuple không",
+     "2 in (1, 2, 3)",
+     "True"
+    ],
+    [
+     "Bất biến",
+     "Không gán lại được từng phần tử, sẽ báo TypeError",
+     "t = (1, 2)\nt[0] = 9",
+     "TypeError"
+    ],
+    [
+     "Làm khóa của dict",
+     "Tuple dùng được làm khóa dict, còn list thì không",
+     "toa_do = {(10, 20): 'nha'}",
+     ""
+    ],
+    [
+     "min() / max()",
+     "Giá trị nhỏ nhất / lớn nhất trong tuple",
+     "max((3, 9, 5))",
+     "9"
     ]
    ]
   },
@@ -4125,6 +4479,102 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "Lấy ra và xóa theo khóa",
      "d.pop(\"a\")",
      "1"
+    ],
+    [
+     "Gán / thêm khóa",
+     "Gán giá trị cho khóa, chưa có thì tự thêm",
+     "sv['tuoi'] = 20",
+     ""
+    ],
+    [
+     "get() mặc định",
+     "Lấy giá trị, không có khóa thì trả về giá trị mặc định thay vì lỗi",
+     "sv.get('lop', 'Chưa có')",
+     ""
+    ],
+    [
+     "setdefault()",
+     "Lấy giá trị, chưa có khóa thì thêm vào với giá trị mặc định",
+     "sv.setdefault('lop', 'A1')",
+     ""
+    ],
+    [
+     "update()",
+     "Gộp một dict khác vào, khóa trùng thì ghi đè",
+     "sv.update({'tuoi': 21, 'lop': 'A2'})",
+     ""
+    ],
+    [
+     "popitem()",
+     "Lấy ra và xóa cặp thêm vào sau cùng",
+     "sv.popitem()",
+     ""
+    ],
+    [
+     "del",
+     "Xóa một khóa",
+     "del sv['tuoi']",
+     ""
+    ],
+    [
+     "in",
+     "Kiểm tra khóa có tồn tại không",
+     "'ten' in sv",
+     "True"
+    ],
+    [
+     "copy()",
+     "Sao chép nông dict",
+     "ban_sao = sv.copy()",
+     ""
+    ],
+    [
+     "clear()",
+     "Xóa sạch mọi cặp",
+     "sv.clear()",
+     ""
+    ],
+    [
+     "dict.fromkeys()",
+     "Tạo dict từ danh sách khóa với một giá trị chung",
+     "dict.fromkeys(['a', 'b'], 0)",
+     "{'a': 0, 'b': 0}"
+    ],
+    [
+     "Dict comprehension",
+     "Tạo dict trong một dòng",
+     "{x: x ** 2 for x in range(4)}",
+     "{0: 0, 1: 1, 2: 4, 3: 9}"
+    ],
+    [
+     "Gộp bằng |",
+     "Gộp hai dict thành dict mới (Python 3.9+)",
+     "{'a': 1} | {'b': 2}",
+     "{'a': 1, 'b': 2}"
+    ],
+    [
+     "Duyệt keys + values",
+     "Lặp qua từng cặp khóa - giá trị",
+     "for k, v in sv.items():\n    print(k, v)",
+     ""
+    ],
+    [
+     "Sắp theo giá trị",
+     "Sắp xếp các cặp theo giá trị giảm dần",
+     "sorted(diem.items(), key=lambda kv: kv[1], reverse=True)",
+     ""
+    ],
+    [
+     "zip() tạo dict",
+     "Ghép hai list thành dict",
+     "dict(zip(['a', 'b'], [1, 2]))",
+     "{'a': 1, 'b': 2}"
+    ],
+    [
+     "Dict lồng nhau",
+     "Giá trị của dict là một dict khác",
+     "ds = {'an': {'tuoi': 20}}\nds['an']['tuoi']",
+     "20"
     ]
    ]
   },
@@ -4165,6 +4615,78 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "clear()",
      "Xóa toàn bộ",
      "s.clear()",
+     ""
+    ],
+    [
+     "discard()",
+     "Xóa phần tử, không có thì không báo lỗi (khác remove)",
+     "s.discard(9)",
+     ""
+    ],
+    [
+     "| hoặc union()",
+     "Hợp: mọi phần tử của cả hai tập",
+     "{1, 2} | {2, 3}",
+     "{1, 2, 3}"
+    ],
+    [
+     "& hoặc intersection()",
+     "Giao: phần tử có ở cả hai tập",
+     "{1, 2} & {2, 3}",
+     "{2}"
+    ],
+    [
+     "- hoặc difference()",
+     "Hiệu: có ở tập đầu mà không có ở tập sau",
+     "{1, 2} - {2, 3}",
+     "{1}"
+    ],
+    [
+     "^ hoặc symmetric_difference()",
+     "Chỉ có ở một trong hai tập",
+     "{1, 2} ^ {2, 3}",
+     "{1, 3}"
+    ],
+    [
+     "issubset() / issuperset()",
+     "Tập con / tập cha",
+     "{1}.issubset({1, 2})",
+     "True"
+    ],
+    [
+     "isdisjoint()",
+     "Hai tập không có phần tử chung",
+     "{1}.isdisjoint({2})",
+     "True"
+    ],
+    [
+     "in",
+     "Kiểm tra có trong tập không, rất nhanh",
+     "3 in {1, 2, 3}",
+     "True"
+    ],
+    [
+     "Set comprehension",
+     "Tạo set trong một dòng",
+     "{x % 3 for x in range(10)}",
+     "{0, 1, 2}"
+    ],
+    [
+     "frozenset()",
+     "Set bất biến, dùng được làm khóa dict",
+     "frozenset([1, 2])",
+     ""
+    ],
+    [
+     "Set rỗng",
+     "Muốn set rỗng phải dùng set(), vì {} là dict rỗng",
+     "rong = set()",
+     ""
+    ],
+    [
+     "copy()",
+     "Sao chép tập hợp",
+     "s2 = s.copy()",
      ""
     ]
    ]
@@ -4207,6 +4729,108 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "Kiểm tra có đúng kiểu",
      "isinstance(5, int)",
      "True"
+    ],
+    [
+     "zip()",
+     "Duyệt song song nhiều list",
+     "for ten, diem in zip(ds_ten, ds_diem):\n    print(ten, diem)",
+     ""
+    ],
+    [
+     "reversed()",
+     "Duyệt ngược",
+     "for x in reversed([1, 2, 3]):\n    print(x)",
+     ""
+    ],
+    [
+     "range(a, b, bước)",
+     "Dãy số có bước nhảy, bước âm để đếm ngược",
+     "list(range(10, 0, -3))",
+     "[10, 7, 4, 1]"
+    ],
+    [
+     "enumerate(start=1)",
+     "Đánh số từ giá trị bạn chọn",
+     "for i, x in enumerate(['a', 'b'], start=1):\n    print(i, x)",
+     ""
+    ],
+    [
+     "break",
+     "Thoát hẳn khỏi vòng lặp",
+     "for x in ds:\n    if x < 0:\n        break",
+     ""
+    ],
+    [
+     "continue",
+     "Bỏ qua lượt hiện tại, sang lượt kế tiếp",
+     "for x in ds:\n    if x < 0:\n        continue",
+     ""
+    ],
+    [
+     "pass",
+     "Câu lệnh rỗng, giữ chỗ cho code viết sau",
+     "def chua_viet():\n    pass",
+     ""
+    ],
+    [
+     "for ... else",
+     "Khối else chạy khi vòng lặp kết thúc mà không gặp break",
+     "for x in ds:\n    if x == 0:\n        break\nelse:\n    print('Không có số 0')",
+     ""
+    ],
+    [
+     "while",
+     "Lặp khi điều kiện còn đúng",
+     "n = 3\nwhile n > 0:\n    print(n)\n    n -= 1",
+     ""
+    ],
+    [
+     "while True + break",
+     "Lặp mãi cho tới khi bạn tự thoát",
+     "while True:\n    s = input('Nhập q để thoát: ')\n    if s == 'q':\n        break",
+     ""
+    ],
+    [
+     "print(sep, end)",
+     "Đổi dấu phân cách và ký tự cuối dòng",
+     "print('a', 'b', sep='-', end='!')",
+     "a-b!"
+    ],
+    [
+     "print(*list)",
+     "In từng phần tử của list cách nhau dấu cách",
+     "print(*[1, 2, 3])",
+     "1 2 3"
+    ],
+    [
+     "input().split()",
+     "Nhập nhiều giá trị trên một dòng",
+     "a, b = input().split()",
+     ""
+    ],
+    [
+     "map(int, input().split())",
+     "Nhập nhiều số nguyên trên một dòng",
+     "a, b = map(int, input().split())",
+     ""
+    ],
+    [
+     "iter() / next()",
+     "Lấy từng phần tử một từ iterator",
+     "it = iter([1, 2])\nnext(it)",
+     "1"
+    ],
+    [
+     "Vòng lặp lồng nhau",
+     "Vòng lặp trong vòng lặp, hay dùng cho bảng, lưới",
+     "for i in range(3):\n    for j in range(3):\n        print(i, j)",
+     ""
+    ],
+    [
+     "Toán tử :=",
+     "Gán và dùng giá trị ngay trong điều kiện (Python 3.8+)",
+     "if (n := len(ds)) > 3:\n    print(n)",
+     ""
     ]
    ]
   },
@@ -4248,6 +4872,72 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "Ép sang tuple",
      "tuple([1, 2])",
      "(1, 2)"
+    ],
+    [
+     "dict()",
+     "Tạo dict từ danh sách các cặp",
+     "dict([('a', 1), ('b', 2)])",
+     "{'a': 1, 'b': 2}"
+    ],
+    [
+     "set()",
+     "Đổi sang tập hợp, loại phần tử trùng",
+     "set([1, 1, 2])",
+     "{1, 2}"
+    ],
+    [
+     "int(chuỗi, cơ số)",
+     "Đổi chuỗi sang số theo cơ số bất kỳ",
+     "int('1010', 2)",
+     "10"
+    ],
+    [
+     "int() từ số thực",
+     "Cắt bỏ phần thập phân, không làm tròn",
+     "int(3.9)",
+     "3"
+    ],
+    [
+     "int('3.5') báo lỗi",
+     "Chuỗi có dấu chấm phải qua float trước",
+     "int(float('3.5'))",
+     "3"
+    ],
+    [
+     "list(chuỗi)",
+     "Tách chuỗi thành từng ký tự",
+     "list('abc')",
+     "['a', 'b', 'c']"
+    ],
+    [
+     "str(list)",
+     "Đổi list thành chuỗi để in",
+     "str([1, 2])",
+     "'[1, 2]'"
+    ],
+    [
+     "bool() và giá trị sai",
+     "Các giá trị được coi là False: 0, 0.0, '', [], {}, set(), None",
+     "bool([])",
+     "False"
+    ],
+    [
+     "repr()",
+     "Chuỗi biểu diễn đối tượng, dùng để gỡ lỗi",
+     "repr('abc')",
+     "\"'abc'\""
+    ],
+    [
+     "chr() / ord()",
+     "Đổi giữa ký tự và mã số",
+     "chr(65)",
+     "'A'"
+    ],
+    [
+     "round() ép int",
+     "Làm tròn rồi mới ép kiểu nếu cần làm tròn thật",
+     "int(round(3.9))",
+     "4"
     ]
    ]
   },
@@ -4288,6 +4978,48 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "sample()",
      "Chọn k phần tử không trùng",
      "random.sample(a, 2)",
+     ""
+    ],
+    [
+     "randrange()",
+     "Số nguyên ngẫu nhiên có bước nhảy, không gồm số cuối",
+     "random.randrange(0, 10, 2)",
+     ""
+    ],
+    [
+     "choices()",
+     "Chọn nhiều phần tử, cho phép trùng, có thể kèm trọng số",
+     "random.choices(['a', 'b'], k=5)",
+     ""
+    ],
+    [
+     "seed()",
+     "Đặt hạt giống để kết quả lặp lại được",
+     "random.seed(42)",
+     ""
+    ],
+    [
+     "gauss()",
+     "Số ngẫu nhiên theo phân phối chuẩn",
+     "random.gauss(0, 1)",
+     ""
+    ],
+    [
+     "Đảo ngẫu nhiên list mới",
+     "sample() trả về list mới, shuffle() thì đảo ngay list gốc",
+     "random.sample(ds, len(ds))",
+     ""
+    ],
+    [
+     "Chọn đúng một khóa dict",
+     "Chọn khóa ngẫu nhiên",
+     "random.choice(list(d))",
+     ""
+    ],
+    [
+     "secrets.token_hex()",
+     "Chuỗi ngẫu nhiên đủ an toàn cho mật khẩu, token",
+     "import secrets\nsecrets.token_hex(8)",
      ""
     ]
    ]
@@ -4330,6 +5062,102 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "Nhận số tham số tùy ý",
      "def tong(*args):",
      ""
+    ],
+    [
+     "Tham số mặc định",
+     "Có giá trị sẵn khi không truyền vào",
+     "def chao(ten='bạn'):\n    return 'Xin chào ' + ten",
+     ""
+    ],
+    [
+     "**kwargs",
+     "Gom các tham số đặt tên thành dict",
+     "def f(**kw):\n    print(kw)\nf(a=1, b=2)",
+     "{'a': 1, 'b': 2}"
+    ],
+    [
+     "Trả về nhiều giá trị",
+     "Trả về tuple rồi tách ra khi nhận",
+     "def mm(ds):\n    return min(ds), max(ds)\nnho, lon = mm([3, 1, 2])",
+     ""
+    ],
+    [
+     "Gọi bằng tên tham số",
+     "Truyền theo tên, không cần đúng thứ tự",
+     "chao(ten='An')",
+     ""
+    ],
+    [
+     "Docstring",
+     "Chuỗi mô tả hàm đặt ngay dưới def, help() sẽ hiện nó",
+     "def f():\n    \"\"\"Mô tả hàm.\"\"\"",
+     ""
+    ],
+    [
+     "global",
+     "Cho phép hàm sửa biến toàn cục",
+     "dem = 0\ndef tang():\n    global dem\n    dem += 1",
+     ""
+    ],
+    [
+     "nonlocal",
+     "Sửa biến của hàm bao ngoài khi viết hàm lồng nhau",
+     "def ngoai():\n    n = 0\n    def trong():\n        nonlocal n\n        n += 1",
+     ""
+    ],
+    [
+     "Đệ quy",
+     "Hàm tự gọi chính nó, phải có điều kiện dừng",
+     "def gt(n):\n    return 1 if n <= 1 else n * gt(n - 1)",
+     ""
+    ],
+    [
+     "Gợi ý kiểu",
+     "Ghi chú kiểu dữ liệu, Python không bắt buộc",
+     "def cong(a: int, b: int) -> int:\n    return a + b",
+     ""
+    ],
+    [
+     "Decorator",
+     "Bọc thêm chức năng cho một hàm",
+     "def ghi_log(f):\n    def boc(*a, **k):\n        print('gọi', f.__name__)\n        return f(*a, **k)\n    return boc\n\n@ghi_log\ndef chao():\n    print('hi')",
+     ""
+    ],
+    [
+     "lambda với sorted",
+     "Sắp xếp theo tiêu chí viết nhanh",
+     "sorted(ds, key=lambda x: x['tuoi'])",
+     ""
+    ],
+    [
+     "functools.reduce()",
+     "Gộp cả list thành một giá trị",
+     "from functools import reduce\nreduce(lambda a, b: a * b, [1, 2, 3, 4])",
+     "24"
+    ],
+    [
+     "lru_cache",
+     "Nhớ kết quả đã tính để hàm đệ quy chạy nhanh",
+     "from functools import lru_cache\n\n@lru_cache(maxsize=None)\ndef fib(n):\n    return n if n < 2 else fib(n - 1) + fib(n - 2)",
+     ""
+    ],
+    [
+     "Giải nén khi gọi",
+     "Truyền list làm tham số rời bằng *, dict bằng **",
+     "cong(*[1, 2])\nchao(**{'ten': 'An'})",
+     ""
+    ],
+    [
+     "__name__ == '__main__'",
+     "Đoạn code chỉ chạy khi chạy trực tiếp file, không chạy khi bị import",
+     "if __name__ == '__main__':\n    main()",
+     ""
+    ],
+    [
+     "yield",
+     "Biến hàm thành generator, trả về từng giá trị một",
+     "def dem(n):\n    for i in range(n):\n        yield i",
+     ""
     ]
    ]
   },
@@ -4370,6 +5198,84 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "assert",
      "Kiểm tra điều kiện",
      "assert x > 0",
+     ""
+    ],
+    [
+     "except Exception as e",
+     "Bắt lỗi và lấy thông báo lỗi",
+     "try:\n    int('abc')\nexcept Exception as e:\n    print(e)",
+     ""
+    ],
+    [
+     "Bắt nhiều loại lỗi",
+     "Gộp nhiều loại lỗi vào một except",
+     "except (ValueError, TypeError):",
+     ""
+    ],
+    [
+     "Nhiều khối except",
+     "Mỗi loại lỗi một cách xử lý riêng",
+     "try:\n    x = 1 / 0\nexcept ZeroDivisionError:\n    print('Chia cho 0')\nexcept ValueError:\n    print('Sai giá trị')",
+     ""
+    ],
+    [
+     "ValueError",
+     "Giá trị sai dù kiểu đúng",
+     "int('abc')",
+     "ValueError"
+    ],
+    [
+     "TypeError",
+     "Dùng sai kiểu dữ liệu",
+     "'a' + 1",
+     "TypeError"
+    ],
+    [
+     "KeyError",
+     "Khóa không có trong dict",
+     "{'a': 1}['b']",
+     "KeyError"
+    ],
+    [
+     "IndexError",
+     "Chỉ số vượt quá list",
+     "[1, 2][5]",
+     "IndexError"
+    ],
+    [
+     "ZeroDivisionError",
+     "Chia cho 0",
+     "1 / 0",
+     "ZeroDivisionError"
+    ],
+    [
+     "FileNotFoundError",
+     "Mở file không tồn tại",
+     "open('khong_co.txt')",
+     "FileNotFoundError"
+    ],
+    [
+     "NameError",
+     "Dùng biến chưa được tạo",
+     "print(chua_co)",
+     "NameError"
+    ],
+    [
+     "raise ValueError(...)",
+     "Chủ động báo lỗi kèm thông báo",
+     "raise ValueError('Tuổi phải lớn hơn 0')",
+     ""
+    ],
+    [
+     "Lớp lỗi riêng",
+     "Tạo loại lỗi của riêng mình",
+     "class LoiTuoi(Exception):\n    pass",
+     ""
+    ],
+    [
+     "traceback.print_exc()",
+     "In đầy đủ vết lỗi nhưng chương trình vẫn chạy tiếp",
+     "import traceback\ntraceback.print_exc()",
      ""
     ]
    ]
@@ -4412,6 +5318,1067 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
      "Tự động đóng tệp",
      "with open(\"a.txt\") as f:",
      ""
+    ],
+    [
+     "Chế độ mở 'w' / 'a'",
+     "w ghi đè từ đầu, a ghi nối vào cuối file",
+     "open('a.txt', 'a')",
+     ""
+    ],
+    [
+     "Chế độ mở 'r+' / 'rb'",
+     "r+ vừa đọc vừa ghi, rb đọc file nhị phân (ảnh, pdf)",
+     "open('anh.png', 'rb')",
+     ""
+    ],
+    [
+     "encoding='utf-8'",
+     "Cần khi đọc ghi file có tiếng Việt để khỏi lỗi font",
+     "open('a.txt', encoding='utf-8')",
+     ""
+    ],
+    [
+     "readlines()",
+     "Đọc cả file thành list các dòng",
+     "f.readlines()",
+     ""
+    ],
+    [
+     "Duyệt từng dòng",
+     "Cách đọc file lớn nhẹ bộ nhớ nhất",
+     "with open('a.txt', encoding='utf-8') as f:\n    for dong in f:\n        print(dong.strip())",
+     ""
+    ],
+    [
+     "Ghi nhiều dòng",
+     "Ghi cả list dòng, tự thêm \\n ở cuối mỗi dòng",
+     "f.writelines([d + '\\n' for d in ds])",
+     ""
+    ],
+    [
+     "seek() / tell()",
+     "Dịch chuyển / xem vị trí đang đọc trong file",
+     "f.seek(0)",
+     ""
+    ],
+    [
+     "os.path.exists()",
+     "Kiểm tra file hoặc thư mục có tồn tại không",
+     "import os\nos.path.exists('a.txt')",
+     "True"
+    ],
+    [
+     "os.listdir()",
+     "Liệt kê tên file trong thư mục",
+     "os.listdir('.')",
+     ""
+    ],
+    [
+     "os.remove()",
+     "Xóa file",
+     "os.remove('a.txt')",
+     ""
+    ],
+    [
+     "os.makedirs()",
+     "Tạo thư mục (kể cả thư mục cha nếu thiếu)",
+     "os.makedirs('a/b/c', exist_ok=True)",
+     ""
+    ],
+    [
+     "shutil.copy()",
+     "Sao chép file",
+     "import shutil\nshutil.copy('a.txt', 'b.txt')",
+     ""
+    ],
+    [
+     "Path.read_text()",
+     "Đọc cả file thành chuỗi bằng pathlib",
+     "from pathlib import Path\nPath('a.txt').read_text(encoding='utf-8')",
+     ""
+    ],
+    [
+     "Path.write_text()",
+     "Ghi chuỗi vào file bằng pathlib",
+     "Path('a.txt').write_text('Xin chào', encoding='utf-8')",
+     ""
+    ],
+    [
+     "Path.glob()",
+     "Tìm file theo mẫu tên",
+     "list(Path('.').glob('*.txt'))",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "Toán tử & cú pháp ngắn",
+   "rows": [
+    [
+     "Gán nhiều biến",
+     "Gán nhiều biến trên một dòng",
+     "a, b, c = 1, 2, 3",
+     ""
+    ],
+    [
+     "Hoán đổi",
+     "Đổi chỗ hai biến",
+     "a, b = b, a",
+     ""
+    ],
+    [
+     "+=  -=  *=  /=",
+     "Toán tử gán rút gọn",
+     "n += 1",
+     ""
+    ],
+    [
+     "So sánh nối tiếp",
+     "Kiểm tra một số nằm trong khoảng",
+     "0 < x < 10",
+     ""
+    ],
+    [
+     "Biểu thức điều kiện",
+     "if else gọn trên một dòng",
+     "'chẵn' if n % 2 == 0 else 'lẻ'",
+     ""
+    ],
+    [
+     "and / or / not",
+     "Toán tử logic",
+     "x > 0 and x < 10",
+     ""
+    ],
+    [
+     "== và is",
+     "== so sánh giá trị, is so sánh có phải cùng một đối tượng không",
+     "[1] == [1]\n[1] is [1]",
+     "True và False"
+    ],
+    [
+     "is None",
+     "Kiểm tra giá trị rỗng, nên dùng is thay cho ==",
+     "if x is None:",
+     ""
+    ],
+    [
+     "Giải nén list",
+     "Tách list ra nhiều biến, * gom phần còn lại",
+     "dau, *giua, cuoi = [1, 2, 3, 4, 5]",
+     ""
+    ],
+    [
+     "match case",
+     "Rẽ nhánh theo mẫu (Python 3.10+)",
+     "match lenh:\n    case 'dung':\n        print('Dừng')\n    case 'chay':\n        print('Chạy')\n    case _:\n        print('Không rõ')",
+     ""
+    ],
+    [
+     "Chuỗi nhiều dòng",
+     "Ba dấu nháy để viết chuỗi nhiều dòng",
+     "van_ban = \"\"\"Dòng 1\nDòng 2\"\"\"",
+     ""
+    ],
+    [
+     "Dấu gạch dưới _",
+     "Biến bỏ qua, hoặc ngăn cách chữ số cho dễ đọc",
+     "for _ in range(3):\n    print('Hi')\nso = 1_000_000",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "Comprehension (viết gọn)",
+   "rows": [
+    [
+     "List comprehension",
+     "Tạo list trong một dòng",
+     "[x * 2 for x in range(5)]",
+     "[0, 2, 4, 6, 8]"
+    ],
+    [
+     "Có điều kiện lọc",
+     "Thêm if ở cuối để lọc",
+     "[x for x in range(10) if x % 2 == 0]",
+     "[0, 2, 4, 6, 8]"
+    ],
+    [
+     "Có if else",
+     "if else đặt ở phía trước for",
+     "['chẵn' if x % 2 == 0 else 'lẻ' for x in range(3)]",
+     "['chẵn', 'lẻ', 'chẵn']"
+    ],
+    [
+     "Hai vòng for",
+     "Vòng lặp lồng nhau trong một dòng",
+     "[(x, y) for x in range(2) for y in range(2)]",
+     ""
+    ],
+    [
+     "Dàn phẳng list 2 chiều",
+     "Biến list lồng nhau thành một list",
+     "[x for hang in luoi for x in hang]",
+     ""
+    ],
+    [
+     "Dict comprehension",
+     "Tạo dict trong một dòng",
+     "{ten: len(ten) for ten in ['an', 'binh']}",
+     "{'an': 2, 'binh': 4}"
+    ],
+    [
+     "Set comprehension",
+     "Tạo set trong một dòng",
+     "{x % 3 for x in range(10)}",
+     "{0, 1, 2}"
+    ],
+    [
+     "Generator expression",
+     "Giống list comprehension nhưng tạo từng giá trị khi cần, tiết kiệm bộ nhớ",
+     "sum(x * x for x in range(1000))",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "Định dạng chuỗi (f-string)",
+   "rows": [
+    [
+     "f-string",
+     "Nhúng biến và biểu thức vào chuỗi",
+     "ten = 'An'\nf'Xin chào {ten}'",
+     "'Xin chào An'"
+    ],
+    [
+     "Biểu thức trong {}",
+     "Tính toán ngay trong dấu ngoặc nhọn",
+     "f'{2 + 3}'",
+     "'5'"
+    ],
+    [
+     "{x:.2f}",
+     "Số thực với 2 chữ số thập phân",
+     "f'{3.14159:.2f}'",
+     "'3.14'"
+    ],
+    [
+     "{x:,}",
+     "Ngăn cách hàng nghìn bằng dấu phẩy",
+     "f'{1234567:,}'",
+     "'1,234,567'"
+    ],
+    [
+     "{x:05d}",
+     "Số nguyên đủ 5 chữ số, thêm số 0 phía trước",
+     "f'{42:05d}'",
+     "'00042'"
+    ],
+    [
+     "{x:>10}",
+     "Căn phải trong độ rộng 10 (< trái, ^ giữa)",
+     "f'{\"abc\":>10}'",
+     ""
+    ],
+    [
+     "{x:.1%}",
+     "Hiện dạng phần trăm",
+     "f'{0.256:.1%}'",
+     "'25.6%'"
+    ],
+    [
+     "{x=}",
+     "In cả tên biến và giá trị, tiện để gỡ lỗi",
+     "x = 5\nf'{x=}'",
+     "'x=5'"
+    ],
+    [
+     "{ngay:%d/%m/%Y}",
+     "Định dạng ngày giờ",
+     "f'{datetime.now():%d/%m/%Y}'",
+     ""
+    ],
+    [
+     "str.format()",
+     "Cách cũ của f-string",
+     "'{} có {} tuổi'.format('An', 20)",
+     ""
+    ],
+    [
+     "Dấu {{ }}",
+     "Hiện nguyên dấu ngoặc nhọn",
+     "f'{{x}}'",
+     "'{x}'"
+    ]
+   ]
+  },
+  {
+   "name": "Ngày giờ (datetime)",
+   "rows": [
+    [
+     "datetime.now()",
+     "Ngày giờ hiện tại",
+     "from datetime import datetime\ndatetime.now()",
+     ""
+    ],
+    [
+     "date.today()",
+     "Ngày hôm nay",
+     "from datetime import date\ndate.today()",
+     ""
+    ],
+    [
+     "strftime()",
+     "Đổi ngày giờ thành chuỗi theo định dạng",
+     "datetime.now().strftime('%d/%m/%Y %H:%M')",
+     "'19/09/2026 08:30'"
+    ],
+    [
+     "strptime()",
+     "Đổi chuỗi thành ngày giờ theo định dạng",
+     "datetime.strptime('19/09/2026', '%d/%m/%Y')",
+     ""
+    ],
+    [
+     "timedelta",
+     "Khoảng thời gian, dùng để cộng trừ ngày",
+     "from datetime import timedelta\ndatetime.now() + timedelta(days=7)",
+     ""
+    ],
+    [
+     "Chênh lệch hai ngày",
+     "Trừ hai ngày ra timedelta",
+     "(date(2026, 10, 1) - date(2026, 9, 19)).days",
+     "12"
+    ],
+    [
+     "fromisoformat()",
+     "Đọc chuỗi dạng năm-tháng-ngày",
+     "date.fromisoformat('2026-09-19')",
+     ""
+    ],
+    [
+     "Mã định dạng",
+     "%Y năm, %m tháng, %d ngày, %H giờ, %M phút, %S giây, %A tên thứ",
+     "'%Y-%m-%d %H:%M:%S'",
+     ""
+    ],
+    [
+     "time.sleep()",
+     "Dừng chương trình vài giây",
+     "import time\ntime.sleep(2)",
+     ""
+    ],
+    [
+     "time.time()",
+     "Số giây từ năm 1970, dùng để đo thời gian chạy",
+     "bat_dau = time.time()",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "JSON và CSV",
+   "rows": [
+    [
+     "json.dumps()",
+     "Đổi dict thành chuỗi JSON",
+     "import json\njson.dumps({'a': 1})",
+     "'{\"a\": 1}'"
+    ],
+    [
+     "json.loads()",
+     "Đổi chuỗi JSON thành dict",
+     "json.loads('{\"a\": 1}')",
+     "{'a': 1}"
+    ],
+    [
+     "json.dump()",
+     "Ghi dict vào file JSON",
+     "with open('d.json', 'w', encoding='utf-8') as f:\n    json.dump(du_lieu, f, ensure_ascii=False, indent=2)",
+     ""
+    ],
+    [
+     "json.load()",
+     "Đọc file JSON thành dict",
+     "with open('d.json', encoding='utf-8') as f:\n    du_lieu = json.load(f)",
+     ""
+    ],
+    [
+     "ensure_ascii=False",
+     "Giữ nguyên tiếng Việt khi ghi JSON, không đổi thành \\uXXXX",
+     "json.dumps({'ten': 'Việt'}, ensure_ascii=False)",
+     ""
+    ],
+    [
+     "indent=2",
+     "Xuống dòng, thụt lề cho JSON dễ đọc",
+     "json.dumps(d, indent=2)",
+     ""
+    ],
+    [
+     "csv.reader()",
+     "Đọc file CSV theo từng dòng (list)",
+     "import csv\nwith open('a.csv', newline='', encoding='utf-8') as f:\n    for dong in csv.reader(f):\n        print(dong)",
+     ""
+    ],
+    [
+     "csv.DictReader()",
+     "Đọc CSV, mỗi dòng là một dict theo tên cột",
+     "with open('a.csv', newline='', encoding='utf-8') as f:\n    for dong in csv.DictReader(f):\n        print(dong['ten'])",
+     ""
+    ],
+    [
+     "csv.writer()",
+     "Ghi file CSV",
+     "with open('a.csv', 'w', newline='', encoding='utf-8') as f:\n    w = csv.writer(f)\n    w.writerow(['ten', 'tuoi'])\n    w.writerow(['An', 20])",
+     ""
+    ],
+    [
+     "csv.DictWriter()",
+     "Ghi CSV từ các dict",
+     "w = csv.DictWriter(f, fieldnames=['ten', 'tuoi'])\nw.writeheader()\nw.writerow({'ten': 'An', 'tuoi': 20})",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "Lớp và đối tượng (OOP)",
+   "rows": [
+    [
+     "class",
+     "Khai báo lớp với hàm khởi tạo",
+     "class SinhVien:\n    def __init__(self, ten, tuoi):\n        self.ten = ten\n        self.tuoi = tuoi",
+     ""
+    ],
+    [
+     "Tạo đối tượng",
+     "Gọi tên lớp như một hàm",
+     "sv = SinhVien('An', 20)",
+     ""
+    ],
+    [
+     "Phương thức",
+     "Hàm nằm trong lớp, tham số đầu tiên luôn là self",
+     "def chao(self):\n    return 'Xin chào ' + self.ten",
+     ""
+    ],
+    [
+     "__str__",
+     "Quy định chuỗi hiện ra khi print đối tượng",
+     "def __str__(self):\n    return f'{self.ten} ({self.tuoi})'",
+     ""
+    ],
+    [
+     "__repr__",
+     "Chuỗi biểu diễn dùng khi gỡ lỗi",
+     "def __repr__(self):\n    return f'SinhVien({self.ten!r})'",
+     ""
+    ],
+    [
+     "Kế thừa",
+     "Lớp con dùng lại mọi thứ của lớp cha",
+     "class LopTruong(SinhVien):\n    pass",
+     ""
+    ],
+    [
+     "super()",
+     "Gọi phương thức của lớp cha",
+     "def __init__(self, ten, tuoi, lop):\n    super().__init__(ten, tuoi)\n    self.lop = lop",
+     ""
+    ],
+    [
+     "@classmethod",
+     "Phương thức gắn với lớp, nhận cls thay cho self",
+     "@classmethod\ndef tu_chuoi(cls, s):\n    ten, tuoi = s.split(',')\n    return cls(ten, int(tuoi))",
+     ""
+    ],
+    [
+     "@staticmethod",
+     "Hàm nằm trong lớp nhưng không dùng self",
+     "@staticmethod\ndef la_tuoi_hop_le(t):\n    return t > 0",
+     ""
+    ],
+    [
+     "@property",
+     "Dùng phương thức như một thuộc tính",
+     "@property\ndef nam_sinh(self):\n    return 2026 - self.tuoi",
+     ""
+    ],
+    [
+     "Biến của lớp",
+     "Biến khai báo ngoài __init__, dùng chung cho mọi đối tượng",
+     "class A:\n    so_luong = 0",
+     ""
+    ],
+    [
+     "__eq__ / __len__",
+     "Tùy biến == và len() cho đối tượng",
+     "def __eq__(self, other):\n    return self.ten == other.ten",
+     ""
+    ],
+    [
+     "@dataclass",
+     "Tự sinh __init__, __repr__ cho lớp chỉ chứa dữ liệu",
+     "from dataclasses import dataclass\n\n@dataclass\nclass Diem:\n    x: int\n    y: int",
+     ""
+    ],
+    [
+     "isinstance()",
+     "Kiểm tra đối tượng thuộc lớp nào",
+     "isinstance(sv, SinhVien)",
+     "True"
+    ],
+    [
+     "hasattr() / getattr()",
+     "Kiểm tra / lấy thuộc tính theo tên",
+     "getattr(sv, 'ten', None)",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "Module và thư viện chuẩn hay dùng",
+   "rows": [
+    [
+     "import",
+     "Nạp module, đặt tên ngắn bằng as",
+     "import math as m",
+     ""
+    ],
+    [
+     "from ... import",
+     "Chỉ lấy một vài thứ trong module",
+     "from math import sqrt, pi",
+     ""
+    ],
+    [
+     "sys.argv",
+     "Danh sách tham số gõ sau tên file khi chạy",
+     "import sys\nsys.argv",
+     ""
+    ],
+    [
+     "os.getcwd()",
+     "Thư mục hiện tại của chương trình",
+     "import os\nos.getcwd()",
+     ""
+    ],
+    [
+     "os.environ",
+     "Đọc biến môi trường",
+     "os.environ.get('API_KEY')",
+     ""
+    ],
+    [
+     "collections.Counter",
+     "Đếm số lần mỗi phần tử xuất hiện",
+     "from collections import Counter\nCounter('banana')",
+     "Counter({'a': 3, 'n': 2, 'b': 1})"
+    ],
+    [
+     "Counter.most_common()",
+     "Các phần tử xuất hiện nhiều nhất",
+     "Counter('banana').most_common(1)",
+     "[('a', 3)]"
+    ],
+    [
+     "collections.defaultdict",
+     "Dict tự tạo giá trị mặc định cho khóa chưa có",
+     "from collections import defaultdict\nd = defaultdict(list)\nd['a'].append(1)",
+     ""
+    ],
+    [
+     "collections.deque",
+     "Hàng đợi thêm / lấy hai đầu nhanh",
+     "from collections import deque\nq = deque([1, 2])\nq.appendleft(0)",
+     ""
+    ],
+    [
+     "itertools.permutations()",
+     "Mọi hoán vị",
+     "from itertools import permutations\nlist(permutations([1, 2, 3], 2))",
+     ""
+    ],
+    [
+     "itertools.combinations()",
+     "Mọi tổ hợp",
+     "from itertools import combinations\nlist(combinations([1, 2, 3], 2))",
+     "[(1, 2), (1, 3), (2, 3)]"
+    ],
+    [
+     "itertools.product()",
+     "Tích Descartes của các list",
+     "from itertools import product\nlist(product([1, 2], 'ab'))",
+     ""
+    ],
+    [
+     "re.findall()",
+     "Tìm mọi chuỗi khớp biểu thức chính quy",
+     "import re\nre.findall(r'\\d+', 'a1b22')",
+     "['1', '22']"
+    ],
+    [
+     "re.sub()",
+     "Thay thế theo biểu thức chính quy",
+     "re.sub(r'\\s+', ' ', 'a   b')",
+     "'a b'"
+    ],
+    [
+     "logging",
+     "Ghi nhật ký chương trình theo mức độ, tốt hơn dùng print để gỡ lỗi",
+     "import logging\nlogging.basicConfig(level=logging.INFO)\nlogging.info('Bắt đầu')",
+     ""
+    ],
+    [
+     "argparse",
+     "Đọc tham số dòng lệnh có tên rõ ràng",
+     "import argparse\np = argparse.ArgumentParser()\np.add_argument('--ten')\nargs = p.parse_args()",
+     ""
+    ],
+    [
+     "statistics",
+     "Trung bình, trung vị, độ lệch chuẩn",
+     "import statistics\nstatistics.mean([1, 2, 3])",
+     "2"
+    ]
+   ]
+  },
+  {
+   "name": "SQLite trong Python",
+   "rows": [
+    [
+     "connect()",
+     "Mở (hoặc tạo) file cơ sở dữ liệu SQLite",
+     "import sqlite3\nconn = sqlite3.connect('truong.db')",
+     ""
+    ],
+    [
+     "cursor()",
+     "Tạo con trỏ để chạy lệnh SQL",
+     "cur = conn.cursor()",
+     ""
+    ],
+    [
+     "execute()",
+     "Chạy một câu SQL",
+     "cur.execute('CREATE TABLE IF NOT EXISTS sv (id INTEGER PRIMARY KEY, ten TEXT)')",
+     ""
+    ],
+    [
+     "Tham số ?",
+     "Truyền giá trị bằng dấu ?, không nối chuỗi (chống SQL injection)",
+     "cur.execute('INSERT INTO sv (ten) VALUES (?)', ('An',))",
+     ""
+    ],
+    [
+     "executemany()",
+     "Chạy một câu SQL cho nhiều dòng dữ liệu",
+     "cur.executemany('INSERT INTO sv (ten) VALUES (?)', [('An',), ('Bình',)])",
+     ""
+    ],
+    [
+     "commit()",
+     "Lưu thay đổi vào file, quên commit thì mất dữ liệu",
+     "conn.commit()",
+     ""
+    ],
+    [
+     "fetchall()",
+     "Lấy mọi dòng kết quả thành list các tuple",
+     "cur.execute('SELECT * FROM sv')\ncur.fetchall()",
+     ""
+    ],
+    [
+     "fetchone()",
+     "Lấy một dòng kết quả",
+     "cur.fetchone()",
+     ""
+    ],
+    [
+     "row_factory",
+     "Cho phép truy cập cột theo tên",
+     "conn.row_factory = sqlite3.Row",
+     ""
+    ],
+    [
+     "close()",
+     "Đóng kết nối khi xong",
+     "conn.close()",
+     ""
+    ],
+    [
+     "with conn:",
+     "Tự commit nếu thành công, tự rollback nếu lỗi",
+     "with conn:\n    conn.execute('DELETE FROM sv WHERE id = ?', (1,))",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "Môi trường và pip (Windows)",
+   "rows": [
+    [
+     "py --version",
+     "Xem phiên bản Python đang cài",
+     "py --version",
+     ""
+    ],
+    [
+     "py file.py",
+     "Chạy một file Python",
+     "py app.py",
+     ""
+    ],
+    [
+     "py -m venv",
+     "Tạo môi trường ảo cho dự án",
+     "py -m venv venv",
+     ""
+    ],
+    [
+     "Kích hoạt venv",
+     "Bật môi trường ảo trong PowerShell (gõ deactivate để tắt)",
+     ".\\venv\\Scripts\\activate",
+     ""
+    ],
+    [
+     "py -m pip install",
+     "Cài thư viện",
+     "py -m pip install requests",
+     ""
+    ],
+    [
+     "py -m pip freeze",
+     "Liệt kê thư viện đã cài kèm phiên bản",
+     "py -m pip freeze > requirements.txt",
+     ""
+    ],
+    [
+     "pip install -r",
+     "Cài lại toàn bộ thư viện từ file",
+     "py -m pip install -r requirements.txt",
+     ""
+    ],
+    [
+     "pip uninstall",
+     "Gỡ thư viện",
+     "py -m pip uninstall requests",
+     ""
+    ],
+    [
+     "pip list --outdated",
+     "Xem thư viện nào có bản mới",
+     "py -m pip list --outdated",
+     ""
+    ],
+    [
+     "py -m http.server",
+     "Mở nhanh một web server để xem file HTML trong thư mục hiện tại",
+     "py -m http.server 8000",
+     ""
+    ],
+    [
+     "python -i",
+     "Chạy file xong vẫn ở lại chế độ gõ lệnh tương tác",
+     "py -i app.py",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "requests: gọi API",
+   "rows": [
+    [
+     "requests.get()",
+     "Gửi yêu cầu GET (cần pip install requests)",
+     "import requests\nr = requests.get('https://api.github.com')",
+     ""
+    ],
+    [
+     "status_code",
+     "Mã trạng thái: 200 là thành công, 404 không tìm thấy",
+     "r.status_code",
+     "200"
+    ],
+    [
+     ".json()",
+     "Đọc nội dung trả về dạng JSON thành dict",
+     "du_lieu = r.json()",
+     ""
+    ],
+    [
+     ".text",
+     "Nội dung trả về dạng chuỗi",
+     "r.text",
+     ""
+    ],
+    [
+     "params=",
+     "Gắn tham số vào địa chỉ",
+     "requests.get(url, params={'q': 'python'})",
+     ""
+    ],
+    [
+     "headers=",
+     "Gửi kèm header, ví dụ khóa API",
+     "requests.get(url, headers={'Authorization': 'Bearer abc'})",
+     ""
+    ],
+    [
+     "requests.post()",
+     "Gửi dữ liệu lên server (json= để gửi dạng JSON)",
+     "requests.post(url, json={'ten': 'An'})",
+     ""
+    ],
+    [
+     "raise_for_status()",
+     "Báo lỗi nếu mã trạng thái là lỗi (4xx, 5xx)",
+     "r.raise_for_status()",
+     ""
+    ],
+    [
+     "timeout=",
+     "Giới hạn thời gian chờ, tránh treo chương trình",
+     "requests.get(url, timeout=10)",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "Gỡ lỗi và kiểm thử",
+   "rows": [
+    [
+     "print() để dò lỗi",
+     "In giá trị biến ra để xem chương trình đang làm gì",
+     "print('x =', x)",
+     ""
+    ],
+    [
+     "type() và dir()",
+     "Xem kiểu và các hàm của một đối tượng",
+     "type(x)\ndir(x)",
+     ""
+    ],
+    [
+     "breakpoint()",
+     "Dừng chương trình và mở trình gỡ lỗi pdb (n: dòng kế, c: chạy tiếp, q: thoát)",
+     "breakpoint()",
+     ""
+    ],
+    [
+     "assert",
+     "Báo lỗi nếu điều kiện sai",
+     "assert tuoi > 0, 'Tuổi phải dương'",
+     ""
+    ],
+    [
+     "unittest",
+     "Viết kiểm thử có sẵn trong Python",
+     "import unittest\n\nclass TestCong(unittest.TestCase):\n    def test_cong(self):\n        self.assertEqual(cong(1, 2), 3)\n\nif __name__ == '__main__':\n    unittest.main()",
+     ""
+    ],
+    [
+     "pytest",
+     "Công cụ kiểm thử phổ biến (cài bằng pip). Hàm bắt đầu bằng test_",
+     "def test_cong():\n    assert cong(1, 2) == 3",
+     ""
+    ],
+    [
+     "Chạy pytest",
+     "Chạy mọi kiểm thử trong dự án",
+     "py -m pytest",
+     ""
+    ],
+    [
+     "Đọc traceback",
+     "Đọc từ dưới lên: dòng cuối là loại lỗi, các dòng trên chỉ ra file và dòng gây lỗi",
+     "",
+     ""
+    ]
+   ]
+  },
+  {
+   "name": "Lỗi thường gặp và cách sửa",
+   "rows": [
+    [
+     "SyntaxError",
+     "Sai cú pháp: thiếu dấu hai chấm, ngoặc, nháy",
+     "if x > 1\n    print(x)",
+     "Thiếu dấu :"
+    ],
+    [
+     "IndentationError",
+     "Thụt lề sai, cả file chỉ nên dùng một kiểu (4 dấu cách)",
+     "def f():\nprint('a')",
+     "Thiếu thụt lề"
+    ],
+    [
+     "NameError",
+     "Dùng biến chưa tạo hoặc gõ sai tên",
+     "print(ten_bien_sai)",
+     "Kiểm tra chính tả, và biến đã được gán chưa"
+    ],
+    [
+     "TypeError",
+     "Dùng sai kiểu: cộng chuỗi với số, gọi sai số tham số",
+     "'tuoi: ' + 20",
+     "Dùng str(20) hoặc f-string"
+    ],
+    [
+     "ValueError",
+     "Kiểu đúng nhưng giá trị không hợp lệ",
+     "int('abc')",
+     "Kiểm tra dữ liệu trước khi ép kiểu"
+    ],
+    [
+     "IndexError",
+     "Chỉ số vượt quá độ dài list",
+     "ds = [1, 2]\nds[2]",
+     "Chỉ số cuối là len(ds) - 1"
+    ],
+    [
+     "KeyError",
+     "Khóa không có trong dict",
+     "d['khong_co']",
+     "Dùng d.get('khong_co')"
+    ],
+    [
+     "AttributeError",
+     "Đối tượng không có thuộc tính hoặc phương thức đó",
+     "'abc'.append('d')",
+     "Kiểm tra bằng dir()"
+    ],
+    [
+     "ModuleNotFoundError",
+     "Chưa cài thư viện hoặc sai tên",
+     "import requests",
+     "py -m pip install requests"
+    ],
+    [
+     "ZeroDivisionError",
+     "Chia cho 0",
+     "10 / 0",
+     "Kiểm tra mẫu số trước khi chia"
+    ],
+    [
+     "RecursionError",
+     "Đệ quy không có điều kiện dừng",
+     "def f():\n    f()",
+     "Thêm điều kiện dừng"
+    ],
+    [
+     "UnicodeDecodeError",
+     "Mở file sai bảng mã",
+     "open('a.txt').read()",
+     "Thêm encoding='utf-8'"
+    ],
+    [
+     "Sửa list khi đang lặp",
+     "Xóa phần tử trong lúc duyệt list làm bỏ sót phần tử",
+     "for x in ds[:]:\n    if x < 0:\n        ds.remove(x)",
+     "Duyệt bản sao ds[:]"
+    ],
+    [
+     "Tham số mặc định là list",
+     "def f(ds=[]) dùng chung một list cho mọi lần gọi",
+     "def f(ds=None):\n    if ds is None:\n        ds = []",
+     "Dùng None rồi tạo list mới"
+    ]
+   ]
+  },
+  {
+   "name": "Bài mẫu hay gặp",
+   "rows": [
+    [
+     "Kiểm tra số chẵn lẻ",
+     "Dùng phần dư khi chia cho 2",
+     "'chẵn' if n % 2 == 0 else 'lẻ'",
+     ""
+    ],
+    [
+     "Kiểm tra palindrome",
+     "Chuỗi đọc xuôi ngược giống nhau",
+     "s == s[::-1]",
+     ""
+    ],
+    [
+     "FizzBuzz",
+     "Bài phỏng vấn kinh điển",
+     "for i in range(1, 16):\n    if i % 15 == 0:\n        print('FizzBuzz')\n    elif i % 3 == 0:\n        print('Fizz')\n    elif i % 5 == 0:\n        print('Buzz')\n    else:\n        print(i)",
+     ""
+    ],
+    [
+     "Đếm từ trong câu",
+     "Tách câu rồi đếm",
+     "len('xin chào các bạn'.split())",
+     "4"
+    ],
+    [
+     "Đếm tần suất",
+     "Đếm số lần mỗi ký tự xuất hiện",
+     "from collections import Counter\nCounter('hello')",
+     ""
+    ],
+    [
+     "Số nguyên tố",
+     "Kiểm tra n có phải số nguyên tố không",
+     "def la_nguyen_to(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True",
+     ""
+    ],
+    [
+     "Fibonacci",
+     "Dãy số mà mỗi số là tổng hai số trước",
+     "a, b = 0, 1\nfor _ in range(10):\n    print(a)\n    a, b = b, a + b",
+     ""
+    ],
+    [
+     "Giai thừa",
+     "Dùng math.factorial",
+     "import math\nmath.factorial(5)",
+     "120"
+    ],
+    [
+     "Tìm số lớn thứ hai",
+     "Bỏ trùng, sắp xếp rồi lấy phần tử áp cuối",
+     "sorted(set(ds))[-2]",
+     ""
+    ],
+    [
+     "Gộp hai list không trùng",
+     "Dùng set rồi sắp xếp",
+     "sorted(set(a) | set(b))",
+     ""
+    ],
+    [
+     "Chia list thành nhóm",
+     "Cắt list thành từng nhóm n phần tử",
+     "[ds[i:i + 3] for i in range(0, len(ds), 3)]",
+     ""
+    ],
+    [
+     "Đảo ngược từng từ",
+     "Đảo thứ tự các từ trong câu",
+     "' '.join(cau.split()[::-1])",
+     ""
+    ],
+    [
+     "Chuyển văn bản không dấu",
+     "Bỏ dấu tiếng Việt bằng unicodedata",
+     "import unicodedata\n''.join(c for c in unicodedata.normalize('NFD', 'Việt Nam') if unicodedata.category(c) != 'Mn')",
+     "'Viet Nam'"
+    ],
+    [
+     "Đọc file, đếm dòng",
+     "Đếm số dòng của file",
+     "with open('a.txt', encoding='utf-8') as f:\n    n = sum(1 for _ in f)",
+     ""
+    ],
+    [
+     "Đo thời gian chạy",
+     "Đo hàm chạy mất bao lâu",
+     "import time\nbd = time.perf_counter()\nham()\nprint(time.perf_counter() - bd)",
+     ""
     ]
    ]
   }
@@ -4432,6 +6399,22 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
   [
    "Đọc thông báo lỗi",
    "Dòng cuối của lỗi thường nói rõ vấn đề nằm ở đâu."
+  ],
+  [
+   "Lỗi thì đọc dòng cuối trước",
+   "Dòng cuối của traceback nói rõ loại lỗi. Các dòng phía trên chỉ ra file và số dòng gây lỗi."
+  ],
+  [
+   "Dùng venv cho mỗi dự án",
+   "Mỗi dự án một môi trường ảo thì thư viện không đụng nhau. Nhớ ghi requirements.txt."
+  ],
+  [
+   "Có tiếng Việt thì ghi rõ encoding",
+   "Mở file bằng encoding='utf-8' và ghi JSON bằng ensure_ascii=False để không bị lỗi font."
+  ],
+  [
+   "Sao chép list cẩn thận",
+   "b = a không tạo bản sao, chỉ thêm tên gọi khác cho cùng một list. Dùng a.copy() hoặc a[:]."
   ]
  ]
 };
@@ -5148,11 +7131,138 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
   { "name": "Giao dịch (Transaction)", "rows": [
     ["BEGIN", "Bắt đầu một giao dịch", "BEGIN;", ""],
     ["COMMIT", "Xác nhận, lưu mọi thay đổi trong giao dịch", "COMMIT;", ""],
-    ["ROLLBACK", "Hủy bỏ, quay về trạng thái trước giao dịch", "ROLLBACK;", ""]
+    ["ROLLBACK", "Hủy bỏ, quay về trạng thái trước giao dịch", "ROLLBACK;", ""],
+    ["START TRANSACTION", "Cách viết khác của BEGIN (MySQL)", "START TRANSACTION;", ""],
+    ["SAVEPOINT", "Đặt điểm đánh dấu trong giao dịch để có thể lùi một phần", "SAVEPOINT sau_buoc_1;", ""],
+    ["ROLLBACK TO", "Quay về điểm đánh dấu, không hủy cả giao dịch", "ROLLBACK TO sau_buoc_1;", ""],
+    ["Ví dụ chuyển tiền", "Hai bước phải cùng thành công hoặc cùng hủy", "BEGIN;\nUPDATE tai_khoan SET so_du = so_du - 100 WHERE id = 1;\nUPDATE tai_khoan SET so_du = so_du + 100 WHERE id = 2;\nCOMMIT;", ""]
+  ]},
+  { "name": "Truy vấn nâng cao hơn", "rows": [
+    ["LIMIT ... OFFSET", "Phân trang: bỏ qua m dòng rồi lấy n dòng", "SELECT * FROM nhan_vien\nORDER BY id\nLIMIT 10 OFFSET 20;", ""],
+    ["TOP", "SQL Server dùng TOP thay cho LIMIT", "SELECT TOP 5 * FROM nhan_vien;", ""],
+    ["ORDER BY nhiều cột", "Sắp xếp theo cột đầu, trùng thì xét tiếp cột sau", "ORDER BY phong ASC, luong DESC", ""],
+    ["NOT IN", "Không thuộc một danh sách", "WHERE phong NOT IN ('IT', 'KT')", ""],
+    ["NOT LIKE", "Không khớp mẫu", "WHERE ten NOT LIKE 'Nguyen%'", ""],
+    ["LIKE '_'", "Dấu _ khớp đúng một ký tự, % khớp nhiều ký tự", "WHERE ma LIKE 'A_1%'", ""],
+    ["IS NOT NULL", "Kiểm tra giá trị không rỗng", "WHERE phong IS NOT NULL", ""],
+    ["COUNT(DISTINCT)", "Đếm số giá trị khác nhau", "SELECT COUNT(DISTINCT phong) FROM nhan_vien;", ""],
+    ["GROUP BY nhiều cột", "Gom nhóm theo nhiều tiêu chí", "SELECT phong, tuoi, COUNT(*)\nFROM nhan_vien\nGROUP BY phong, tuoi;", ""],
+    ["IN (subquery)", "Thuộc kết quả của một truy vấn khác", "WHERE kh_id IN (\n  SELECT id FROM khach_hang\n  WHERE ten LIKE 'A%')", ""],
+    ["ANY / ALL", "So sánh với một / mọi giá trị trong kết quả truy vấn con", "WHERE luong > ALL (\n  SELECT luong FROM nhan_vien\n  WHERE phong = 'KT')", ""],
+    ["WITH (CTE)", "Đặt tên cho một truy vấn tạm để đọc dễ hơn", "WITH it AS (\n  SELECT * FROM nhan_vien WHERE phong = 'IT')\nSELECT AVG(luong) FROM it;", ""],
+    ["INSERT ... SELECT", "Thêm dữ liệu lấy từ truy vấn khác", "INSERT INTO nv_backup\nSELECT * FROM nhan_vien;", ""],
+    ["CREATE TABLE ... AS", "Tạo bảng mới từ kết quả truy vấn (SQL Server: SELECT INTO)", "CREATE TABLE nv_it AS\nSELECT * FROM nhan_vien WHERE phong = 'IT';", ""]
+  ]},
+  { "name": "JOIN nâng cao & phép tập hợp", "rows": [
+    ["JOIN nhiều bảng", "Nối liên tiếp ba bảng trở lên", "FROM don_hang d\nJOIN khach_hang k ON d.kh_id = k.id\nJOIN san_pham s ON d.sp_id = s.id", ""],
+    ["Self join", "Nối một bảng với chính nó (ví dụ nhân viên và quản lý)", "FROM nhan_vien nv\nJOIN nhan_vien ql ON nv.ql_id = ql.id", ""],
+    ["USING", "Rút gọn ON khi hai bảng có cột cùng tên", "FROM don_hang JOIN khach_hang USING (kh_id)", ""],
+    ["LEFT JOIN ... IS NULL", "Tìm dòng bên trái chưa có dòng khớp ở bảng phải", "FROM khach_hang k\nLEFT JOIN don_hang d ON d.kh_id = k.id\nWHERE d.id IS NULL", "Khách chưa mua gì"],
+    ["INTERSECT", "Lấy phần chung của hai truy vấn (MySQL mới có từ 8.0.31)", "SELECT ten FROM a\nINTERSECT\nSELECT ten FROM b;", ""],
+    ["EXCEPT", "Lấy dòng có ở truy vấn đầu nhưng không có ở truy vấn sau (Oracle: MINUS)", "SELECT ten FROM a\nEXCEPT\nSELECT ten FROM b;", ""]
+  ]},
+  { "name": "Window function", "rows": [
+    ["ROW_NUMBER()", "Đánh số thứ tự, không bao giờ trùng", "ROW_NUMBER() OVER (ORDER BY luong DESC)", ""],
+    ["RANK()", "Xếp hạng, trùng điểm thì cùng hạng và bỏ số thứ tự kế tiếp", "RANK() OVER (ORDER BY luong DESC)", "1, 2, 2, 4"],
+    ["DENSE_RANK()", "Xếp hạng, trùng điểm cùng hạng nhưng không bỏ số", "DENSE_RANK() OVER (ORDER BY luong DESC)", "1, 2, 2, 3"],
+    ["PARTITION BY", "Chia nhóm rồi tính riêng trong từng nhóm, không gộp dòng như GROUP BY", "RANK() OVER (\n  PARTITION BY phong ORDER BY luong DESC)", ""],
+    ["SUM() OVER", "Tổng cộng dồn theo thứ tự", "SUM(tong_tien) OVER (ORDER BY ngay)", ""],
+    ["LAG()", "Lấy giá trị của dòng đứng trước", "LAG(doanh_thu) OVER (ORDER BY thang)", ""],
+    ["LEAD()", "Lấy giá trị của dòng đứng sau", "LEAD(doanh_thu) OVER (ORDER BY thang)", ""],
+    ["NTILE(n)", "Chia các dòng thành n nhóm đều nhau", "NTILE(4) OVER (ORDER BY luong)", ""]
+  ]},
+  { "name": "Hàm chuỗi mở rộng", "rows": [
+    ["LEFT() / RIGHT()", "Lấy n ký tự đầu / cuối", "LEFT('Hello', 2)", "'He'"],
+    ["LTRIM() / RTRIM()", "Xóa khoảng trắng bên trái / bên phải", "LTRIM('  a')", "'a'"],
+    ["INSTR() / POSITION()", "Tìm vị trí của chuỗi con (0 nghĩa là không có)", "INSTR('Nha Trang', 'Trang')", "5"],
+    ["REVERSE()", "Đảo ngược chuỗi", "REVERSE('abc')", "'cba'"],
+    ["LPAD() / RPAD()", "Thêm ký tự vào đầu / cuối cho đủ độ dài", "LPAD('7', 3, '0')", "'007'"],
+    ["REPEAT()", "Lặp chuỗi nhiều lần (SQL Server: REPLICATE)", "REPEAT('ab', 3)", "'ababab'"],
+    ["GROUP_CONCAT()", "Nối các giá trị của nhóm thành một chuỗi (MySQL; PostgreSQL: STRING_AGG)", "SELECT phong, GROUP_CONCAT(ten)\nFROM nhan_vien GROUP BY phong;", ""],
+    ["CONCAT_WS()", "Nối chuỗi có ký tự phân cách", "CONCAT_WS('-', '2026', '09', '19')", "'2026-09-19'"],
+    ["REGEXP", "Khớp theo biểu thức chính quy (MySQL)", "WHERE ten REGEXP '^[AB]'", ""]
+  ]},
+  { "name": "Ngày giờ mở rộng", "rows": [
+    ["YEAR() / MONTH() / DAY()", "Lấy năm, tháng, ngày từ một ngày", "YEAR('2026-09-19')", "2026"],
+    ["DATE_ADD()", "Cộng thêm khoảng thời gian (MySQL)", "DATE_ADD('2026-09-19', INTERVAL 7 DAY)", "'2026-09-26'"],
+    ["DATEDIFF()", "Số ngày chênh lệch giữa hai ngày (MySQL)", "DATEDIFF('2026-10-01', '2026-09-19')", "12"],
+    ["DATE_FORMAT()", "Định dạng ngày thành chuỗi (MySQL)", "DATE_FORMAT(NOW(), '%d/%m/%Y')", "'19/09/2026'"],
+    ["EXTRACT()", "Lấy một phần của ngày giờ (chuẩn SQL)", "EXTRACT(MONTH FROM ngay_sinh)", ""],
+    ["STRFTIME()", "Định dạng ngày giờ trong SQLite (dùng ở tab Chạy thử SQL)", "STRFTIME('%Y-%m', ngay)", "'2026-09'"],
+    ["Lọc theo khoảng ngày", "Lấy các dòng trong một tháng", "WHERE ngay >= '2026-09-01'\n  AND ngay < '2026-10-01'", ""]
+  ]},
+  { "name": "Hàm điều kiện & xử lý NULL", "rows": [
+    ["IFNULL()", "Thay NULL bằng giá trị khác (MySQL; giống COALESCE)", "IFNULL(phong, 'Chua co')", ""],
+    ["NULLIF()", "Trả về NULL nếu hai giá trị bằng nhau (tránh chia cho 0)", "tong / NULLIF(so_luong, 0)", ""],
+    ["IF()", "Điều kiện ngắn gọn (MySQL)", "IF(tuoi >= 18, 'Lon', 'Nho')", ""],
+    ["IIF()", "Điều kiện ngắn gọn (SQL Server, SQLite)", "IIF(tuoi >= 18, 'Lon', 'Nho')", ""],
+    ["GREATEST() / LEAST()", "Giá trị lớn nhất / nhỏ nhất trong một danh sách", "GREATEST(3, 9, 5)", "9"],
+    ["NULL trong phép so sánh", "NULL không bằng gì cả, kể cả NULL. Phải dùng IS NULL, không dùng = NULL", "WHERE phong IS NULL", ""]
+  ]},
+  { "name": "Thêm / sửa / xóa nâng cao", "rows": [
+    ["INSERT nhiều dòng", "Thêm nhiều dòng trong một câu lệnh", "INSERT INTO nhan_vien (ten, tuoi) VALUES\n('An', 25),\n('Binh', 30),\n('Chi', 28);", ""],
+    ["UPDATE nhiều cột", "Sửa nhiều cột cùng lúc", "UPDATE nhan_vien\nSET tuoi = 27, phong = 'IT'\nWHERE id = 1;", ""],
+    ["UPDATE theo phép tính", "Cập nhật dựa trên giá trị cũ", "UPDATE nhan_vien SET luong = luong * 1.1;", ""],
+    ["INSERT IGNORE", "Bỏ qua dòng bị trùng khóa thay vì báo lỗi (MySQL)", "INSERT IGNORE INTO sv (id, ten) VALUES (1, 'An');", ""],
+    ["ON DUPLICATE KEY UPDATE", "Thêm mới, nếu trùng khóa thì cập nhật (MySQL)", "INSERT INTO sv (id, ten) VALUES (1, 'An')\nON DUPLICATE KEY UPDATE ten = 'An';", ""],
+    ["ON CONFLICT", "Giống trên nhưng cho PostgreSQL và SQLite", "INSERT INTO sv (id, ten) VALUES (1, 'An')\nON CONFLICT (id) DO UPDATE SET ten = 'An';", ""],
+    ["DELETE ... JOIN", "Xóa dòng dựa trên bảng khác (MySQL)", "DELETE d FROM don_hang d\nJOIN khach_hang k ON d.kh_id = k.id\nWHERE k.ten = 'An';", ""],
+    ["RETURNING", "Trả về các dòng vừa thêm / sửa / xóa (PostgreSQL, SQLite)", "INSERT INTO sv (ten) VALUES ('An') RETURNING id;", ""]
+  ]},
+  { "name": "Sửa cấu trúc bảng (ALTER)", "rows": [
+    ["ADD COLUMN", "Thêm cột mới", "ALTER TABLE sv ADD COLUMN lop VARCHAR(10);", ""],
+    ["DROP COLUMN", "Xóa cột", "ALTER TABLE sv DROP COLUMN lop;", ""],
+    ["MODIFY COLUMN", "Đổi kiểu dữ liệu của cột (MySQL; PostgreSQL dùng ALTER COLUMN ... TYPE)", "ALTER TABLE sv MODIFY COLUMN ten VARCHAR(100);", ""],
+    ["RENAME COLUMN", "Đổi tên cột", "ALTER TABLE sv RENAME COLUMN ten TO ho_ten;", ""],
+    ["RENAME TABLE", "Đổi tên bảng", "ALTER TABLE sv RENAME TO sinh_vien;", ""],
+    ["ADD CONSTRAINT", "Thêm ràng buộc cho bảng đã có", "ALTER TABLE sv ADD CONSTRAINT uq_email UNIQUE (email);", ""],
+    ["ADD FOREIGN KEY", "Thêm khóa ngoại cho bảng đã có", "ALTER TABLE don_hang\nADD FOREIGN KEY (kh_id) REFERENCES khach_hang(id);", ""],
+    ["IF NOT EXISTS", "Chỉ tạo nếu chưa có, tránh báo lỗi khi chạy lại", "CREATE TABLE IF NOT EXISTS sv (id INT);", ""],
+    ["IF EXISTS", "Chỉ xóa nếu đang có", "DROP TABLE IF EXISTS sv;", ""],
+    ["DROP INDEX", "Xóa chỉ mục", "DROP INDEX idx_ten ON sv;", ""],
+    ["DROP DATABASE", "Xóa hẳn cơ sở dữ liệu. NGUY HIỂM", "DROP DATABASE truong;", ""]
+  ]},
+  { "name": "Quản trị MySQL", "rows": [
+    ["SHOW DATABASES", "Liệt kê các cơ sở dữ liệu", "SHOW DATABASES;", ""],
+    ["USE", "Chọn cơ sở dữ liệu để làm việc", "USE truong;", ""],
+    ["SHOW TABLES", "Liệt kê các bảng trong cơ sở dữ liệu đang dùng", "SHOW TABLES;", ""],
+    ["DESCRIBE", "Xem cấu trúc các cột của bảng (viết tắt DESC)", "DESCRIBE sv;", ""],
+    ["SHOW CREATE TABLE", "Xem câu lệnh đã tạo ra bảng", "SHOW CREATE TABLE sv;", ""],
+    ["EXPLAIN", "Xem MySQL sẽ chạy câu truy vấn thế nào, để tối ưu tốc độ", "EXPLAIN SELECT * FROM sv WHERE ten = 'An';", ""],
+    ["CREATE USER", "Tạo tài khoản người dùng", "CREATE USER 'an'@'localhost' IDENTIFIED BY 'mat_khau';", ""],
+    ["GRANT", "Cấp quyền cho tài khoản", "GRANT SELECT, INSERT ON truong.* TO 'an'@'localhost';", ""],
+    ["REVOKE", "Thu hồi quyền", "REVOKE INSERT ON truong.* FROM 'an'@'localhost';", ""],
+    ["mysqldump", "Sao lưu cơ sở dữ liệu ra file (gõ ở terminal, không phải trong MySQL)", "mysqldump -u root -p truong > truong.sql", ""],
+    ["SOURCE", "Chạy một file .sql trong MySQL (nạp lại bản sao lưu)", "SOURCE truong.sql;", ""]
+  ]},
+  { "name": "Thủ tục, hàm, trigger", "rows": [
+    ["CREATE PROCEDURE", "Lưu một nhóm câu lệnh để gọi lại nhiều lần (MySQL)", "DELIMITER //\nCREATE PROCEDURE ds_it()\nBEGIN\n  SELECT * FROM nhan_vien WHERE phong = 'IT';\nEND //\nDELIMITER ;", ""],
+    ["CALL", "Gọi một thủ tục đã tạo", "CALL ds_it();", ""],
+    ["CREATE TRIGGER", "Tự chạy một đoạn lệnh khi có thêm / sửa / xóa dữ liệu", "CREATE TRIGGER ghi_log\nAFTER INSERT ON sv\nFOR EACH ROW\nINSERT INTO log (noi_dung) VALUES ('co sv moi');", ""],
+    ["DROP PROCEDURE", "Xóa một thủ tục", "DROP PROCEDURE IF EXISTS ds_it;", ""]
+  ]},
+  { "name": "Thiết kế cơ sở dữ liệu", "rows": [
+    ["Quan hệ 1 - nhiều", "Một khách có nhiều đơn: bảng 'nhiều' giữ khóa ngoại trỏ về bảng 'một'", "don_hang(id, kh_id, ...)\n-- kh_id trỏ về khach_hang(id)", ""],
+    ["Quan hệ nhiều - nhiều", "Sinh viên học nhiều môn, môn có nhiều sinh viên: tạo bảng trung gian", "dang_ky(sv_id, mon_id)\n-- khóa chính gồm cả hai cột", ""],
+    ["Quan hệ 1 - 1", "Mỗi dòng ghép đúng một dòng ở bảng khác, khóa ngoại thêm UNIQUE", "ho_so(id, nguoi_dung_id UNIQUE, ...)", ""],
+    ["Khóa chính gồm nhiều cột", "Khóa chính ghép từ hai cột trở lên", "PRIMARY KEY (sv_id, mon_id)", ""],
+    ["Chuẩn hóa", "Mỗi ô chỉ chứa một giá trị, không lặp dữ liệu, mỗi cột phụ thuộc vào khóa chính", "", ""],
+    ["Chỉ mục (INDEX)", "Nên tạo cho cột hay dùng trong WHERE và JOIN. Quá nhiều chỉ mục làm thêm / sửa chậm đi", "CREATE INDEX idx_kh ON don_hang (kh_id);", ""]
+  ]},
+  { "name": "Bài mẫu hay gặp", "rows": [
+    ["Top n theo nhóm", "Lấy người lương cao nhất mỗi phòng", "SELECT * FROM (\n  SELECT *, ROW_NUMBER() OVER (\n    PARTITION BY phong ORDER BY luong DESC) AS rn\n  FROM nhan_vien) t\nWHERE rn = 1;", ""],
+    ["Tìm dòng trùng", "Liệt kê giá trị xuất hiện nhiều hơn một lần", "SELECT email, COUNT(*)\nFROM sv\nGROUP BY email\nHAVING COUNT(*) > 1;", ""],
+    ["Lương cao thứ hai", "Giá trị cao thứ hai bằng OFFSET", "SELECT DISTINCT luong FROM nhan_vien\nORDER BY luong DESC\nLIMIT 1 OFFSET 1;", ""],
+    ["Phần trăm trên tổng", "Tỷ lệ mỗi dòng so với tổng", "SELECT ten, luong * 100.0 / SUM(luong) OVER () AS phan_tram\nFROM nhan_vien;", ""],
+    ["Đếm theo điều kiện", "Đếm riêng từng loại trong một câu truy vấn", "SELECT\n  SUM(CASE WHEN tuoi >= 18 THEN 1 ELSE 0 END) AS lon,\n  SUM(CASE WHEN tuoi < 18 THEN 1 ELSE 0 END) AS nho\nFROM nhan_vien;", ""]
   ]}
  ]
   };
   var SQL_TIPS = [
+    ["Thứ tự chạy thật của câu SELECT", "SQL chạy FROM, JOIN, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT. Vì vậy bí danh đặt ở SELECT chưa dùng được trong WHERE.", ""],
+    ["Đừng SELECT * khi làm thật", "Chỉ lấy cột cần thiết thì nhanh hơn và rõ ràng hơn.", "SELECT ten, tuoi FROM nhan_vien;"],
+    ["JOIN trước, lọc sau cũng được", "Điều kiện lọc bảng phải trong LEFT JOIN nên để ở ON, nếu để ở WHERE sẽ biến nó thành INNER JOIN.", ""],
+    ["Sao lưu trước khi DROP hoặc TRUNCATE", "Hai lệnh này xóa nhanh và rất khó lấy lại. Chạy mysqldump trước nếu dữ liệu quan trọng.", "mysqldump -u root -p truong > truong.sql"],
     ["Luôn có WHERE khi UPDATE / DELETE", "Nếu không sẽ sửa hoặc xóa cả bảng. Hãy chạy SELECT với cùng điều kiện trước để kiểm tra chắc chắn.", "SELECT * FROM nhan_vien WHERE id = 1;"],
     ["Chuỗi và ngày để trong nháy đơn", "Như 'IT' hay '2026-09-19'; tên bảng, tên cột thì không cần.", ""],
     ["Từ khóa không phân biệt hoa thường", "Nhưng nên viết HOA cho dễ đọc, và kết thúc câu lệnh bằng dấu ;", ""],
@@ -5267,11 +7377,104 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
         ["mv", "Đổi tên, hoặc chuyển file/thư mục sang chỗ khác", "mv old-name new-name", ""],
         ["cp", "Copy nội dung file này sang file khác", "cp file-a file-b", ""],
         ["rm", "Xóa file", "rm file.txt", ""],
-        ["rm -r", "Xóa thư mục cùng mọi thứ bên trong", "rm -r directory", ""]
+        ["rm -r", "Xóa thư mục cùng mọi thứ bên trong", "rm -r directory", ""],
+        ["cp -r", "Copy cả thư mục cùng mọi thứ bên trong", "cp -r src backup", ""],
+        ["mv (nhiều file)", "Chuyển nhiều file vào một thư mục (tên thư mục để cuối)", "mv a.txt b.txt docs/", ""],
+        ["rmdir", "Xóa thư mục rỗng (có file bên trong thì bị từ chối, an toàn hơn rm -r)", "rmdir old-folder", ""],
+        ["rm -i", "Hỏi xác nhận trước khi xóa từng file", "rm -i notes.txt", ""],
+        ["rm -rf", "Ép xóa cả thư mục, không hỏi. NGUY HIỂM, kiểm tra kỹ đường dẫn", "rm -rf build", ""],
+        ["*", "Ký tự đại diện: khớp mọi chuỗi ký tự trong tên file", "rm *.log\nls *.txt", ""],
+        ["?", "Ký tự đại diện: khớp đúng một ký tự", "ls file?.txt", "file1.txt file2.txt"]
+      ]},
+      { name: "Xem file và thư mục chi tiết", rows: [
+        ["ls -l", "Liệt kê dạng chi tiết: quyền, dung lượng, ngày sửa", "ls -l", ""],
+        ["ls -a", "Hiện cả file ẩn (tên bắt đầu bằng dấu chấm, như .git)", "ls -a", ""],
+        ["ls -lh", "Như ls -l nhưng dung lượng dễ đọc (KB, MB, GB)", "ls -lh", ""],
+        ["tree", "Vẽ cây thư mục (Windows dùng tree /f để hiện cả file)", "tree", ""],
+        ["head", "Xem n dòng đầu của file", "head -n 5 log.txt", ""],
+        ["tail", "Xem n dòng cuối của file", "tail -n 5 log.txt", ""],
+        ["tail -f", "Theo dõi file đang được ghi thêm theo thời gian thực, Ctrl+C để dừng", "tail -f app.log", ""],
+        ["less", "Xem file dài từng trang: cuộn bằng mũi tên, gõ /chữ để tìm, q để thoát", "less README.md", ""],
+        ["wc -l", "Đếm số dòng của file (wc -w đếm từ)", "wc -l data.txt", "120 data.txt"],
+        ["file", "Cho biết file thuộc loại gì", "file photo.jpg", ""]
+      ]},
+      { name: "Tìm kiếm", rows: [
+        ["grep", "Tìm các dòng chứa một đoạn chữ trong file", "grep \"error\" app.log", ""],
+        ["grep -i", "Tìm không phân biệt hoa thường", "grep -i \"error\" app.log", ""],
+        ["grep -n", "Tìm và hiện kèm số dòng", "grep -n \"TODO\" main.py", ""],
+        ["grep -r", "Tìm trong mọi file của thư mục và thư mục con", "grep -r \"TODO\" .", ""],
+        ["grep -v", "Đảo ngược: chỉ hiện dòng KHÔNG chứa chữ đó", "grep -v \"debug\" app.log", ""],
+        ["find", "Tìm file hoặc thư mục theo tên", "find . -name \"*.txt\"", ""],
+        ["find -type", "Chỉ tìm file (f) hoặc chỉ tìm thư mục (d)", "find . -type d -name \"node_modules\"", ""],
+        ["which", "Cho biết lệnh nằm ở đâu (Windows dùng where)", "which python", "/usr/bin/python"]
+      ]},
+      { name: "Pipe và chuyển hướng", rows: [
+        ["|", "Pipe: lấy kết quả của lệnh trước làm đầu vào cho lệnh sau", "ls | wc -l", ""],
+        ["sort", "Sắp xếp các dòng (sort -r đảo ngược, sort -n theo số)", "sort names.txt", ""],
+        ["uniq", "Bỏ dòng trùng nằm liền nhau, nên sort trước rồi mới uniq", "sort names.txt | uniq", ""],
+        ["uniq -c", "Đếm mỗi dòng xuất hiện bao nhiêu lần", "sort names.txt | uniq -c", ""],
+        ["2>", "Ghi riêng thông báo lỗi ra một file", "python app.py 2> error.txt", ""],
+        ["> ... 2>&1", "Ghi cả kết quả lẫn thông báo lỗi vào cùng một file", "python app.py > out.txt 2>&1", ""],
+        ["tee", "Vừa hiện ra màn hình vừa ghi vào file", "ls | tee list.txt", ""],
+        ["&&", "Chạy lệnh sau chỉ khi lệnh trước thành công", "mkdir demo && cd demo", ""],
+        [";", "Chạy lần lượt các lệnh, bất kể lệnh trước thành công hay không", "cd demo; ls", ""]
+      ]},
+      { name: "Hệ thống và quyền", rows: [
+        ["whoami", "Cho biết bạn đang đăng nhập bằng tài khoản nào", "whoami", ""],
+        ["date", "Hiện ngày giờ hiện tại", "date", ""],
+        ["history", "Xem danh sách các lệnh đã gõ", "history", ""],
+        ["man", "Xem hướng dẫn đầy đủ của một lệnh (gõ q để thoát)", "man ls", ""],
+        ["--help", "Hiện hướng dẫn ngắn của hầu hết lệnh", "git --help", ""],
+        ["sudo", "Chạy lệnh bằng quyền quản trị (Linux, macOS, WSL)", "sudo apt update", ""],
+        ["chmod +x", "Cho phép file chạy được như một chương trình", "chmod +x run.sh", ""],
+        ["ps", "Liệt kê các tiến trình đang chạy", "ps aux", ""],
+        ["kill", "Tắt một tiến trình theo mã số (PID)", "kill 1234", ""],
+        ["df -h", "Xem dung lượng ổ đĩa còn trống", "df -h", ""],
+        ["du -sh", "Xem một thư mục chiếm bao nhiêu dung lượng", "du -sh Downloads", "1.2G Downloads"]
+      ]},
+      { name: "Mạng và tải file", rows: [
+        ["ping", "Kiểm tra máy có liên lạc được với một địa chỉ không", "ping google.com", ""],
+        ["curl", "Gửi yêu cầu HTTP và in nội dung trả về (hay dùng thử API)", "curl https://example.com", ""],
+        ["curl -O", "Tải file về, giữ nguyên tên file", "curl -O https://example.com/data.zip", ""],
+        ["wget", "Tải file từ internet về máy", "wget https://example.com/data.zip", ""],
+        ["ssh", "Đăng nhập vào máy khác qua mạng một cách an toàn", "ssh user@192.168.1.10", ""],
+        ["ipconfig", "Xem địa chỉ IP của máy trên Windows (Linux, macOS dùng ip a hoặc ifconfig)", "ipconfig", ""]
+      ]},
+      { name: "Biến môi trường và chạy chương trình", rows: [
+        ["export", "Đặt biến môi trường (PowerShell: $env:TEN=\"gia-tri\")", "export API_KEY=abc123", ""],
+        ["echo $VAR", "Xem giá trị một biến (PowerShell: $env:TEN)", "echo $PATH", ""],
+        ["./", "Chạy một file nằm ngay trong thư mục hiện tại", "./run.sh", ""],
+        ["python", "Chạy một file Python", "python app.py", ""],
+        ["node", "Chạy một file JavaScript bằng Node.js", "node index.js", ""],
+        ["alias", "Đặt tên gọi tắt cho một lệnh dài", "alias gs=\"git status\"", ""]
+      ]},
+      { name: "Phím tắt trong terminal", rows: [
+        ["Ctrl+C", "Dừng lệnh đang chạy (không phải copy)", "Ctrl+C", ""],
+        ["Ctrl+L", "Xóa màn hình, giống lệnh clear", "Ctrl+L", ""],
+        ["Ctrl+A / Ctrl+E", "Nhảy về đầu / cuối dòng đang gõ", "Ctrl+A", ""],
+        ["Ctrl+R", "Tìm ngược trong lịch sử lệnh, gõ vài chữ là ra lệnh cũ", "Ctrl+R", ""],
+        ["Ctrl+D", "Thoát khỏi terminal hoặc phiên đăng nhập", "Ctrl+D", ""],
+        ["Ctrl+U", "Xóa từ con trỏ về đầu dòng", "Ctrl+U", ""]
+      ]},
+      { name: "Tương đương trong PowerShell (Windows)", rows: [
+        ["Get-ChildItem", "Giống ls (ls cũng chạy được trong PowerShell)", "Get-ChildItem", ""],
+        ["Get-Location", "Giống pwd", "Get-Location", ""],
+        ["Get-Content", "Giống cat: hiện nội dung file", "Get-Content notes.txt", ""],
+        ["New-Item", "Giống touch (tạo file) hoặc mkdir (thêm -ItemType Directory)", "New-Item notes.txt\nNew-Item docs -ItemType Directory", ""],
+        ["Copy-Item", "Giống cp", "Copy-Item a.txt b.txt", ""],
+        ["Move-Item", "Giống mv", "Move-Item a.txt docs/", ""],
+        ["Remove-Item", "Giống rm (thêm -Recurse để xóa cả thư mục)", "Remove-Item old.txt", ""],
+        ["Select-String", "Giống grep", "Select-String \"error\" app.log", ""],
+        ["Get-Command", "Giống which, cho biết lệnh nằm ở đâu", "Get-Command python", ""],
+        ["Clear-Host", "Giống clear", "Clear-Host", ""]
       ]}
     ]
   };
   var CLI_TIPS = [
+    ["Quên cách dùng lệnh thì gõ --help", "Hầu hết lệnh đều có --help hoặc man. Đọc một lần là nhớ lâu hơn tra mạng.", "git --help"],
+    ["Ctrl+C là nút thoát khẩn cấp", "Lệnh bị treo hoặc chạy mãi không dừng thì nhấn Ctrl+C. Trong terminal, Ctrl+C là dừng lệnh chứ không phải copy.", ""],
+    ["Tên có dấu cách thì đặt trong nháy kép", "Ví dụ cd \"My Documents\". Nên đặt tên file, thư mục bằng gạch ngang hoặc gạch dưới, không dùng dấu cách.", "cd \"My Documents\""],
+    ["Dùng ls trước khi rm", "Chạy ls *.log để xem lệnh sẽ khớp những file nào, rồi mới đổi thành rm *.log.", "ls *.log"],
     ["Dùng Windows thì mở PowerShell", "Hầu hết lệnh ở đây chạy y như vậy. Riêng touch thì thay bằng New-Item.", "New-Item grocery-list.txt"],
     ["Phím mũi tên lên / xuống", "Duyệt lại các lệnh đã gõ, đỡ phải gõ lại từ đầu.", ""],
     ["Phím Tab để tự điền", "Gõ vài chữ đầu của tên file hoặc thư mục rồi nhấn Tab, terminal sẽ điền nốt giúp bạn.", ""],
@@ -5309,6 +7512,8 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
       { name: "Nhánh (branch)", rows: [
         ["git branch", "Liệt kê các nhánh, nhánh đang đứng có dấu *", "git branch", ""],
         ["git switch -c", "Tạo nhánh mới và chuyển sang nhánh đó", "git switch -c tinh-nang-moi", ""],
+        ["git branch <tên>", "Tạo nhánh mới từ nhánh đang đứng nhưng CHƯA chuyển sang (cần switch tiếp)", "git branch tinh-nang-moi", ""],
+        ["git checkout -b", "Cách cũ: tạo và chuyển sang nhánh mới trong một lệnh, giống switch -c", "git checkout -b tinh-nang-moi", ""],
         ["git switch", "Chuyển sang một nhánh có sẵn", "git switch main", ""],
         ["git merge", "Gộp nhánh khác vào nhánh đang đứng", "git merge tinh-nang-moi", ""],
         ["git branch -d", "Xóa nhánh đã gộp xong", "git branch -d tinh-nang-moi", ""]
@@ -5324,11 +7529,112 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
         ["git restore", "Bỏ thay đổi chưa add của một file, quay về bản đã commit", "git restore index.html", ""],
         ["git restore --staged", "Rút file ra khỏi danh sách đã add, vẫn giữ thay đổi", "git restore --staged index.html", ""],
         ["git commit --amend", "Sửa lời nhắn của commit cuối (chưa push)", "git commit --amend -m \"Lời nhắn mới\"", ""],
-        ["git revert", "Tạo commit mới để đảo ngược một commit cũ", "git revert HEAD", ""]
+        ["git revert", "Tạo commit mới để đảo ngược một commit cũ", "git revert HEAD", ""],
+        ["git reset --soft", "Lùi về commit trước, GIỮ thay đổi trong danh sách đã add (chưa push)", "git reset --soft HEAD~1", ""],
+        ["git reset", "Lùi về commit trước, giữ thay đổi nhưng bỏ khỏi danh sách đã add", "git reset HEAD~1", ""],
+        ["git reset --hard", "Lùi về commit trước và XÓA HẾT thay đổi. NGUY HIỂM, không hoàn lại được", "git reset --hard HEAD~1", ""],
+        ["git reflog", "Xem lại mọi bước đã làm, kể cả commit tưởng đã mất (cứu hộ sau reset nhầm)", "git reflog", ""],
+        ["git clean -n", "Xem trước những file chưa được theo dõi sẽ bị xóa (chưa xóa thật)", "git clean -n", ""],
+        ["git clean -fd", "Xóa thật các file và thư mục chưa được theo dõi", "git clean -fd", ""],
+        ["git rm", "Xóa file khỏi thư mục và khỏi Git", "git rm old.txt", ""],
+        ["git rm --cached", "Bỏ file khỏi Git nhưng giữ file trên máy (dùng khi lỡ add file bí mật)", "git rm --cached .env", ""],
+        ["git mv", "Đổi tên hoặc di chuyển file, Git ghi nhận luôn", "git mv old.txt new.txt", ""]
+      ]},
+      { name: "Cài đặt và cấu hình thêm", rows: [
+        ["git config --list", "Xem toàn bộ cấu hình hiện tại", "git config --list", ""],
+        ["init.defaultBranch", "Đặt tên nhánh mặc định cho repo mới là main", "git config --global init.defaultBranch main", ""],
+        ["core.editor", "Chọn trình soạn thảo mở khi viết commit (ví dụ VS Code)", "git config --global core.editor \"code --wait\"", ""],
+        ["alias", "Đặt tên gọi tắt cho lệnh dài", "git config --global alias.st status", "git st = git status"],
+        ["git help", "Mở hướng dẫn của một lệnh Git", "git help commit", ""]
+      ]},
+      { name: "Xem lịch sử và thông tin", rows: [
+        ["git status -s", "Xem trạng thái dạng gọn, mỗi file một dòng", "git status -s", ""],
+        ["git log -n", "Chỉ xem n commit gần nhất", "git log -n 5", ""],
+        ["git log --graph", "Vẽ lịch sử dạng đồ thị nhánh, rất dễ nhìn", "git log --graph --oneline --all", ""],
+        ["git log -p", "Xem lịch sử kèm nội dung thay đổi của từng commit", "git log -p", ""],
+        ["git log --author", "Lọc commit theo tác giả", "git log --author=\"An\"", ""],
+        ["git log -- file", "Xem lịch sử riêng của một file", "git log --oneline -- index.html", ""],
+        ["git show", "Xem chi tiết một commit", "git show HEAD", ""],
+        ["git diff --staged", "Xem thay đổi đã add, chuẩn bị commit", "git diff --staged", ""],
+        ["git diff A..B", "So sánh hai nhánh hoặc hai commit", "git diff main..tinh-nang-moi", ""],
+        ["git blame", "Xem mỗi dòng của file do ai sửa lần cuối, ở commit nào", "git blame app.py", ""],
+        ["git shortlog -sn", "Thống kê số commit theo từng người", "git shortlog -sn", ""]
+      ]},
+      { name: "Nhánh nâng cao", rows: [
+        ["git branch -a", "Liệt kê cả nhánh trên máy lẫn nhánh trên GitHub", "git branch -a", ""],
+        ["git branch -m", "Đổi tên nhánh đang đứng", "git branch -m ten-moi", ""],
+        ["git branch -D", "Ép xóa nhánh dù chưa gộp (mất commit chưa gộp)", "git branch -D thu-nghiem", ""],
+        ["git switch -", "Quay lại nhánh vừa đứng trước đó", "git switch -", ""],
+        ["git merge --no-ff", "Gộp nhánh và luôn tạo một commit gộp để giữ dấu vết nhánh", "git merge --no-ff tinh-nang-moi", ""],
+        ["git merge --abort", "Hủy việc gộp đang dở vì xung đột, quay về như trước", "git merge --abort", ""],
+        ["git rebase", "Dời commit của nhánh mình lên đầu nhánh khác, lịch sử thẳng hàng", "git rebase main", ""],
+        ["git rebase --abort", "Hủy rebase đang dở", "git rebase --abort", ""],
+        ["git cherry-pick", "Lấy riêng một commit từ nhánh khác về nhánh đang đứng", "git cherry-pick a1b2c3d", ""],
+        ["git checkout", "Lệnh cũ, vừa chuyển nhánh vừa khôi phục file. Nay nên dùng switch và restore", "git checkout main", ""]
+      ]},
+      { name: "Giải quyết xung đột (conflict)", rows: [
+        ["Dấu hiệu xung đột", "Git đánh dấu đoạn bị trùng trong file. Giữ phần đúng, xóa các dòng dấu hiệu", "<<<<<<< HEAD\nbản của bạn\n=======\nbản của người khác\n>>>>>>> nhanh-khac", ""],
+        ["Các bước xử lý", "Sửa file, rồi add và commit để hoàn tất việc gộp", "git add ten-file\ngit commit", ""],
+        ["git status", "Khi đang xung đột, status cho biết file nào còn cần sửa", "git status", ""],
+        ["git checkout --ours / --theirs", "Chọn nhanh toàn bộ một phía: bản của mình hoặc bản của người kia", "git checkout --theirs ten-file", ""],
+        ["Khi nào xảy ra xung đột", "Hai nhánh cùng sửa một chỗ trong file, hoặc một nhánh xóa file trong khi nhánh kia sửa. Có thể gặp khi git pull hoặc git merge", "git merge main", ""],
+        ["Các nút trong trình soạn thảo", "VS Code hiện sẵn nút khi mở file xung đột: Accept Current (giữ bản của mình), Accept Incoming (lấy bản đến từ nhánh gộp), Accept Both (giữ cả hai), Compare Changes (so sánh)", "", ""]
+      ]},
+      { name: "Quy trình làm việc theo nhánh", rows: [
+        ["Nhánh mặc định", "Mặc định bạn làm trên main (trừ khi GitHub chỉ định tên khác). Muốn làm tính năng mới thì tạo nhánh con từ main", "git switch -c tinh-nang-moi", ""],
+        ["Cập nhật main về máy", "Khi đồng đội đã đẩy thay đổi lên main, chuyển sang main rồi kéo về", "git checkout main\ngit pull", ""],
+        ["Đưa thay đổi mới của main vào nhánh của mình", "Quay lại nhánh của bạn rồi gộp main vào để làm việc trên mã nguồn mới nhất", "git checkout ten-nhanh-cua-ban\ngit merge main", ""],
+        ["Gộp một nhánh bất kỳ", "Gộp nhánh khác vào nhánh đang đứng", "git merge <ten-nhanh>", ""],
+        ["Thêm README ngay trên GitHub", "Trên GitHub bấm Add file, tạo README.md, commit thẳng vào main. Sau đó về máy kéo thay đổi xuống", "git checkout main\ngit pull", "1 file changed, 1 insertion(+)\ncreate mode 100644 README.md"]
+      ]},
+      { name: "Cất tạm thay đổi (stash)", rows: [
+        ["git stash", "Cất tạm thay đổi chưa commit để chuyển việc khác, thư mục sạch trở lại", "git stash", ""],
+        ["git stash -u", "Cất tạm cả file mới chưa được theo dõi", "git stash -u", ""],
+        ["git stash list", "Xem danh sách các lần cất", "git stash list", ""],
+        ["git stash pop", "Lấy lần cất gần nhất ra và xóa khỏi danh sách", "git stash pop", ""],
+        ["git stash apply", "Lấy ra nhưng vẫn giữ trong danh sách cất", "git stash apply", ""],
+        ["git stash drop", "Xóa một lần cất", "git stash drop", ""]
+      ]},
+      { name: "GitHub nâng cao", rows: [
+        ["git remote -v", "Xem địa chỉ các remote đang nối", "git remote -v", ""],
+        ["git remote set-url", "Đổi địa chỉ remote (ví dụ từ HTTPS sang SSH)", "git remote set-url origin git@github.com:user/repo.git", ""],
+        ["git push -u origin", "Đẩy một nhánh mới lên GitHub lần đầu", "git push -u origin tinh-nang-moi", ""],
+        ["git push --force-with-lease", "Ép đẩy sau khi rebase, nhưng dừng lại nếu người khác vừa đẩy thêm", "git push --force-with-lease", ""],
+        ["git push origin --delete", "Xóa một nhánh trên GitHub", "git push origin --delete tinh-nang-moi", ""],
+        ["git pull --rebase", "Kéo về rồi xếp commit của bạn lên trên, lịch sử không bị rẽ nhánh", "git pull --rebase", ""],
+        ["git fetch --prune", "Tải thông tin mới và dọn các nhánh đã bị xóa trên GitHub", "git fetch --prune", ""],
+        ["git clone --depth 1", "Tải nhanh, chỉ lấy commit mới nhất (repo lớn)", "git clone --depth 1 https://github.com/user/repo.git", ""],
+        ["Fork + upstream", "Sau khi fork repo của người khác, nối thêm repo gốc để cập nhật", "git remote add upstream https://github.com/goc/repo.git\ngit fetch upstream\ngit merge upstream/main", ""]
+      ]},
+      { name: "Tag (đánh dấu phiên bản)", rows: [
+        ["git tag", "Liệt kê các tag", "git tag", ""],
+        ["git tag v1.0", "Gắn nhãn nhẹ vào commit hiện tại", "git tag v1.0", ""],
+        ["git tag -a", "Gắn tag có lời nhắn (nên dùng cho bản phát hành)", "git tag -a v1.0 -m \"Bản đầu tiên\"", ""],
+        ["git push origin tag", "Đẩy tag lên GitHub (push thường không đẩy tag)", "git push origin v1.0", ""],
+        ["git tag -d", "Xóa tag trên máy", "git tag -d v1.0", ""]
+      ]},
+      { name: ".gitignore", rows: [
+        [".gitignore", "File liệt kê những thứ Git không theo dõi. Mỗi dòng một mẫu", ".env\nnode_modules/\n*.log\n__pycache__/\n.DS_Store", ""],
+        ["git check-ignore -v", "Cho biết một file đang bị bỏ qua bởi dòng nào của .gitignore", "git check-ignore -v debug.log", ""],
+        ["Lỡ commit rồi", "Thêm vào .gitignore chưa đủ, cần bỏ file khỏi Git trước", "git rm --cached .env\ngit commit -m \"Bỏ .env khỏi Git\"", ""]
+      ]},
+      { name: "SSH và GitHub CLI (gh)", rows: [
+        ["ssh-keygen", "Tạo khóa SSH để đẩy code mà khỏi gõ mật khẩu", "ssh-keygen -t ed25519 -C \"ban@example.com\"", ""],
+        ["ssh -T", "Thử kết nối tới GitHub bằng SSH", "ssh -T git@github.com", ""],
+        ["gh auth login", "Đăng nhập GitHub CLI (cần cài gh trước)", "gh auth login", ""],
+        ["gh repo create", "Tạo repo mới trên GitHub ngay từ terminal", "gh repo create my-app --public --source=. --push", ""],
+        ["gh pr create", "Mở pull request từ nhánh đang đứng", "gh pr create --fill", ""],
+        ["gh pr list", "Xem danh sách pull request", "gh pr list", ""],
+        ["gh pr checkout", "Tải một pull request về máy để thử", "gh pr checkout 12", ""],
+        ["gh issue create", "Tạo issue mới", "gh issue create", ""]
       ]}
     ]
   };
   var GIT_TIPS = [
+    ["Lỡ tay reset nhầm thì dùng reflog", "git reflog liệt kê mọi vị trí HEAD từng đứng. Tìm commit cũ rồi quay lại bằng git reset --hard mã-commit.", "git reflog"],
+    ["Không rebase hay force push nhánh đang chung với người khác", "Viết lại lịch sử đã đẩy lên sẽ làm đồng đội bị rối. Chỉ làm trên nhánh của riêng bạn.", ""],
+    ["Commit nhỏ, thường xuyên", "Mỗi commit làm một việc rõ ràng thì dễ đọc lại, dễ revert và dễ review hơn.", ""],
+    ["Trước khi đổi nhánh hãy commit hoặc stash", "Thay đổi chưa lưu có thể cản việc chuyển nhánh hoặc bị lẫn sang nhánh khác.", "git stash"],
     ["Vòng lặp hằng ngày", "Sửa code, rồi git status, git add ., git commit -m, cuối cùng git push. Lặp lại mỗi khi xong một phần việc nhỏ.", "git add . && git commit -m \"Mô tả ngắn\" && git push"],
     ["Viết lời nhắn commit ngắn và rõ", "Nói thay đổi này làm gì, ví dụ \"Sửa lỗi nút đăng nhập\". Tránh những lời nhắn như \"update\" hay \"abc\".", ""],
     ["Đừng đưa file bí mật lên GitHub", "Mật khẩu, khóa API, file .env cần ghi tên vào file .gitignore trước khi commit. Đã đẩy lên rồi thì coi như lộ.", ".env"],
@@ -5369,11 +7675,61 @@ No matching distribution found | Sai tên gói, hoặc gói chưa hỗ trợ b�
       { name: "Code và bảng", rows: [
         ["```", "Khối code nhiều dòng. Ghi tên ngôn ngữ sau ba dấu ` để tô màu", "```python\nprint(\"Xin chào\")\n```", ""],
         ["| bảng |", "Bảng. Dòng thứ hai bằng dấu gạch ngăn phần đầu cột", "| Tên | Tuổi |\n|-----|------|\n| An  | 18   |\n| Bình | 19  |", ""],
-        ["\\", "Dấu gạch chéo ngược để hiện nguyên ký tự đặc biệt", "\\*không nghiêng\\*", "*không nghiêng*"]
+        ["\\", "Dấu gạch chéo ngược để hiện nguyên ký tự đặc biệt", "\\*không nghiêng\\*", "*không nghiêng*"],
+        ["    thụt 4 dấu cách", "Cách cũ tạo khối code: thụt mỗi dòng 4 dấu cách (nên dùng ``` cho dễ nhìn)", "    print(\"Xin chào\")", ""],
+        ["```bash", "Khối code theo ngôn ngữ khác: bash, json, js, sql, html...", "```bash\nnpm install\n```", ""],
+        ["```diff", "Hiện thay đổi code: dòng bắt đầu bằng + (thêm) tô xanh, - (xóa) tô đỏ", "```diff\n- const a = 1;\n+ const a = 2;\n```", ""],
+        ["`` ... ``", "Chèn dấu ` vào trong code ngắn: bao đoạn code bằng hai dấu `", "`` dấu ` trong code ``", ""],
+        ["|:---:|", "Căn lề cột trong bảng: :--- trái, :---: giữa, ---: phải", "| Tên | Giá |\n|:----|----:|\n| Táo | 10  |", ""],
+        ["\\|", "Hiện dấu | bên trong ô của bảng", "| Lệnh | Ý nghĩa |\n|------|---------|\n| a \\| b | pipe |", ""]
+      ]},
+      { name: "Định dạng chữ mở rộng", rows: [
+        ["***đậm nghiêng***", "Vừa đậm vừa nghiêng", "***Rất quan trọng***", "Rất quan trọng (đậm nghiêng)"],
+        ["<br>", "Xuống dòng ngay trong một đoạn", "Dòng một<br>Dòng hai", ""],
+        ["<kbd>", "Hiện chữ như một phím bấm trên bàn phím", "Nhấn <kbd>Ctrl</kbd> + <kbd>C</kbd>", ""],
+        ["<sub> / <sup>", "Chỉ số dưới / chỉ số trên", "H<sub>2</sub>O và x<sup>2</sup>", "H₂O và x²"],
+        ["<mark>", "Tô nổi bật chữ (một số nơi hiển thị, GitHub thì không)", "<mark>chú ý</mark>", ""],
+        ["<\!-- ghi chú -->", "Ghi chú ẩn, không hiện ra khi hiển thị. Hợp để nhắc việc cho chính mình", "<\!-- TODO: thêm ảnh -->", ""],
+        ["***", "Cũng là đường kẻ ngang (như ---)", "***", ""],
+        ["Dòng trống", "Tách hai đoạn văn. Không có dòng trống thì hai dòng dính thành một đoạn", "Đoạn một.\n\nĐoạn hai.", ""]
+      ]},
+      { name: "Liên kết nâng cao", rows: [
+        ["[chữ](url \"gợi ý\")", "Liên kết có dòng gợi ý hiện khi rê chuột", "[GitHub](https://github.com \"Trang chủ GitHub\")", ""],
+        ["[chữ][id]", "Liên kết kiểu tham chiếu: khai báo địa chỉ một lần, dùng lại nhiều chỗ", "[Docs][1] và [Blog][1]\n\n[1]: https://example.com", ""],
+        ["[![alt](ảnh)](url)", "Ảnh bấm được: bọc ảnh bằng liên kết", "[![Logo](logo.png)](https://example.com)", ""],
+        ["[chữ](#mục)", "Nhảy tới một tiêu đề trong cùng trang. Tên mục viết thường, thay dấu cách bằng gạch ngang", "[Cài đặt](#cai-dat)", ""],
+        ["[chữ](mailto:)", "Liên kết mở thư email", "[Liên hệ](mailto:ban@example.com)", ""],
+        ["<img width>", "Chèn ảnh có chỉnh kích thước (Markdown thường không chỉnh được)", "<img src=\"logo.png\" width=\"200\">", ""]
+      ]},
+      { name: "Danh sách và khối nội dung", rows: [
+        ["1. 1. 1.", "Đánh số lại tự động: viết toàn số 1, Markdown tự đếm 1, 2, 3", "1. Bước một\n1. Bước hai\n1. Bước ba", ""],
+        ["Đoạn trong mục", "Thụt vào dưới một mục để thêm đoạn văn hoặc code vào cùng mục", "1. Cài đặt\n\n   ```bash\n   npm install\n   ```\n2. Chạy thử", ""],
+        ["Trích dẫn lồng nhau", "Thêm > để lồng trích dẫn", "> Câu hỏi\n>> Trả lời", ""],
+        ["<details>", "Khối bấm để mở ra / thu lại, hợp với phần dài", "<details>\n<summary>Xem thêm</summary>\n\nNội dung ẩn\n\n</details>", ""],
+        ["Chú thích cuối trang", "Ghi chú nhỏ ở cuối trang (GitHub hỗ trợ)", "Có nguồn[^1].\n\n[^1]: Nguồn tham khảo.", ""],
+        ["Danh sách định nghĩa", "Không có cú pháp riêng, hay dùng danh sách có chữ đậm", "- **Git**: quản lý phiên bản\n- **GitHub**: nơi lưu repo", ""]
+      ]},
+      { name: "Riêng cho GitHub", rows: [
+        ["@tên", "Nhắc tới một người dùng, họ sẽ nhận thông báo", "@octocat xem giúp mình nhé", ""],
+        ["#12", "Liên kết tới issue hoặc pull request số 12", "Sửa lỗi #12", ""],
+        ["Mã commit", "Dán mã commit, GitHub tự biến thành liên kết", "a1b2c3d", ""],
+        [":emoji:", "Chèn biểu tượng cảm xúc bằng tên", ":rocket: :tada: :bug:", ""],
+        ["> [!NOTE]", "Hộp lưu ý nổi bật. Có các loại NOTE, TIP, IMPORTANT, WARNING, CAUTION", "> [!NOTE]\n> Cần cài Node.js trước.", ""],
+        ["```mermaid", "Vẽ sơ đồ ngay trong README bằng chữ", "```mermaid\ngraph LR\n  A[Viết code] --> B[Commit] --> C[Push]\n```", ""],
+        ["$công thức$", "Công thức toán (GitHub dùng cú pháp LaTeX)", "$E = mc^2$", ""],
+        ["Huy hiệu (badge)", "Ảnh nhỏ báo trạng thái, giấy phép... ở đầu README", "![License](https://img.shields.io/badge/license-MIT-green)", ""],
+        ["Tải ảnh lên", "Kéo thả ảnh vào ô soạn issue, pull request trên GitHub, nó tự tạo đường dẫn ảnh", "", ""]
+      ]},
+      { name: "Mẫu README", rows: [
+        ["README.md cơ bản", "Khung README gọn đủ dùng cho một dự án nhỏ", "# Tên dự án\n\nMột câu mô tả dự án làm gì.\n\n## Cài đặt\n\n```bash\ngit clone https://github.com/user/repo.git\ncd repo\nnpm install\n```\n\n## Cách chạy\n\n```bash\nnpm start\n```\n\n## Ảnh minh họa\n\n![Ảnh chụp màn hình](screenshot.png)\n\n## Giấy phép\n\nMIT", ""],
+        ["Mục lục tự làm", "Danh sách liên kết nhảy tới từng mục trong README dài", "- [Cài đặt](#cài-đặt)\n- [Cách chạy](#cách-chạy)\n- [Giấy phép](#giấy-phép)", ""]
       ]}
     ]
   };
   var MD_TIPS = [
+    ["Không chắc cú pháp thì xem trước", "Đa số công cụ có chế độ xem trước. Trên GitHub bấm tab Preview khi soạn README.", ""],
+    ["HTML dùng được trong Markdown", "Markdown cho phép chèn thẻ HTML như <br>, <kbd>, <details> khi cú pháp Markdown không đủ. Không phải nơi nào cũng hiển thị đủ thẻ.", ""],
+    ["Mỗi nơi hỗ trợ một khác", "GitHub, Notion, Discord, Obsidian... mỗi nơi hiểu một số cú pháp riêng. Cú pháp cơ bản thì nơi nào cũng chạy.", ""],
     ["Markdown dùng ở đâu", "File README.md trên GitHub, ghi chú trong nhiều ứng dụng, tài liệu của dự án. File Markdown có đuôi .md.", ""],
     ["Xuống dòng cần chú ý", "Nhấn Enter một lần thường không xuống dòng. Hãy để một dòng trống giữa hai đoạn, hoặc thêm hai dấu cách ở cuối dòng.", ""],
     ["Xem trước khi viết", "Trong VS Code, nhấn Ctrl+Shift+V để mở bản xem trước, thấy ngay chữ đậm, bảng và danh sách trông thế nào.", "Ctrl+Shift+V"],
